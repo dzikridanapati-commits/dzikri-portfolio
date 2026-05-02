@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f5f5;
+  --foreground: #000000;
+  --primary: #000000;
+  --secondary: #ffffff;
+  --card: #ffffff;
+  --border: #e5e5e5;
+  --dark: #0a0a0a;
+  --radius: 16px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-dark: var(--dark);
+  
+  --radius-custom: var(--radius);
+
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base custom styles */
+::selection {
+  background-color: var(--primary);
+  color: var(--secondary);
+}

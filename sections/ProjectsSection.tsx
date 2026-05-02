@@ -1,0 +1,198 @@
+"use client";
+
+import { useState } from "react";
+import { ProjectCard } from "@/components/ProjectCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+export const DUMMY_PROJECTS = [
+  {
+    title: "RS Mata Undaan Digital Platform",
+    type: "HEALTHCARE WEBSITE",
+    status: "LIVE",
+    client: "RS Mata Undaan",
+    year: "2024", // Assuming current approx year since none provided
+    description: "A modern healthcare website designed to improve accessibility to medical information and services for patients.\n\nThe platform provides a streamlined experience for visitors to explore hospital services, promotions, and medical information while maintaining a clean and professional healthcare interface.\n\nBuilt with a responsive architecture to ensure smooth browsing across desktop and mobile devices.",
+    metrics: [
+      { value: "38%", label: "FASTER LOAD" },
+      { value: "100%", label: "MOBILE RESPONSIVE" },
+      { value: "95/100", label: "SEO SCORE" }
+    ],
+    tags: ["WordPress", "Elementor", "Custom UI Optimization"],
+    imageUrl: "/images/porto-ziksite (1).jpg",
+    link: "#"
+  },
+  {
+    title: "Candika Laundry Service Website",
+    type: "SERVICE BUSINESS WEBSITE",
+    status: "LIVE",
+    client: "Candika Laundry",
+    year: "2024",
+    description: "A service-based website designed to help customers easily access laundry services and request pickup orders.\n\nThe website focuses on clear messaging, service visibility, and simple interaction so users can quickly understand the service offerings and contact the business. The responsive design ensures a smooth experience across both mobile and desktop platforms.",
+    metrics: [
+      { value: "40%", label: "SERVICE INQUIRIES" },
+      { value: "0", label: "DOWNTIME" },
+      { value: "97/100", label: "USABILITY SCORE" }
+    ],
+    tags: ["WordPress", "Elementor", "Responsive UI Design"],
+    imageUrl: "/images/porto-ziksite (2).jpg",
+    link: "#"
+  },
+  {
+    title: "Iskaya Product Campaign Website",
+    type: "PRODUCT LANDING PAGE",
+    status: "LIVE",
+    client: "Iskaya Snack",
+    year: "2024",
+    description: "A product-focused landing page built to promote snack bundle packages and improve online product visibility.\n\nThe design emphasizes strong product visuals, promotional messaging, and a direct path to purchase through marketplace integration. The layout was optimized to capture attention and guide users toward product discovery.",
+    metrics: [
+      { value: "45%", label: "VISIBILITY" },
+      { value: "30%", label: "ENGAGEMENT" },
+      { value: "94/100", label: "PERFORMANCE" }
+    ],
+    tags: ["WordPress", "Elementor", "Landing Page Optimization"],
+    imageUrl: "/images/porto-ziksite (3).jpg",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Digital Distribution Platform",
+    type: "E-COMMERCE PLATFORM",
+    status: "LIVE",
+    client: "Foodstocks",
+    year: "2024",
+    description: "An e-commerce platform designed to support the distribution of snack products through a centralized digital system.\n\nThe platform enables users to browse products, explore categories, and place orders through a structured interface optimized for both mobile and desktop devices. The system was built with scalability in mind to support future product expansion.",
+    metrics: [
+      { value: "50+", label: "PRODUCTS INTEGRATED" },
+      { value: "MULTI", label: "DEVICE RESPONSIVE" },
+      { value: "96/100", label: "UX PERFORMANCE" }
+    ],
+    tags: ["WordPress", "WooCommerce", "Custom UI Development"],
+    imageUrl: "/images/porto-ziksite (4).jpg",
+    link: "#"
+  },
+  {
+    title: "MyRepublic Promotional Website",
+    type: "MARKETING CAMPAIGN WEBSITE",
+    status: "LIVE",
+    client: "MyRepublic",
+    year: "2024",
+    description: "A promotional website designed to support internet service campaigns and highlight fiber internet offerings.\n\nThe platform delivers clear promotional messaging and strong visual branding to attract potential customers and guide them toward service inquiries. The design prioritizes clarity, speed, and accessibility across devices.",
+    metrics: [
+      { value: "42%", label: "CAMPAIGN ENGAGEMENT" },
+      { value: "100%", label: "MOBILE COMPATIBILITY" },
+      { value: "95/100", label: "PERFORMANCE" }
+    ],
+    tags: ["WordPress", "Elementor", "UI Optimization"],
+    imageUrl: "/images/porto-ziksite (5).jpg",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Reseller Program Website",
+    type: "BUSINESS LANDING PAGE",
+    status: "LIVE",
+    client: "Foodstocks",
+    year: "2024",
+    description: "A conversion-focused landing page designed to attract new resellers and simplify the onboarding process for individuals interested in selling snack products.\n\nThe platform highlights the benefits of joining the reseller program, including product variety, competitive margins, and a streamlined ordering system. The layout was designed to clearly communicate the opportunity and encourage visitors to register as partners.\n\nThe responsive interface ensures a smooth experience across both desktop and mobile devices, making it easy for potential resellers to explore the program and start their journey.",
+    metrics: [
+      { value: "50+", label: "SNACK PRODUCTS" },
+      { value: "30%", label: "RESELLER INQUIRIES" },
+      { value: "96/100", label: "PAGE PERFORMANCE" }
+    ],
+    tags: ["WordPress", "Elementor", "Landing Page Optimization"],
+    imageUrl: "/images/porto-ziksite (6).jpg",
+    link: "#"
+  },
+  {
+    title: "Banana Digital Boost Digital Agency Website",
+    type: "AGENCY WEBSITE",
+    status: "LIVE",
+    client: "Banana Digital Boost",
+    year: "2024",
+    description: "A modern agency website created to represent digital services including web development, digital marketing, and technology solutions.\n\nThe platform showcases services, portfolio work, and consultation opportunities to help businesses discover digital solutions that support their growth. The design combines modern visuals with a structured service presentation.",
+    metrics: [
+      { value: "35%", label: "CONSULTATION INQUIRIES" },
+      { value: "100%", label: "FULLY RESPONSIVE" },
+      { value: "97/100", label: "PERFORMANCE" }
+    ],
+    tags: ["WordPress", "Elementor", "Custom UI Development"],
+    imageUrl: "/images/porto-ziksite (7).jpg",
+    link: "#"
+  }
+];
+
+export function ProjectsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? DUMMY_PROJECTS.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === DUMMY_PROJECTS.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <section id="projects" className="bg-dark py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white">
+            Selected <br className="hidden md:block" /> Works
+          </h2>
+          <div className="flex flex-col md:items-end gap-6">
+            <p className="text-gray-400 font-medium max-w-sm md:text-right uppercase tracking-widest text-xs leading-relaxed">
+              A curated selection of my recent projects demonstrating expertise in frontend architecture and UI design.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative w-full overflow-hidden pt-4 rounded-[24px]">
+          <div
+            className="flex transition-transform duration-700 ease-[cubic-bezier(0.87,_0,_0.13,_1)] w-full"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {DUMMY_PROJECTS.map((project, index) => (
+              <div key={index} className="w-full shrink-0">
+                <ProjectCard
+                  index={index}
+                  title={project.title}
+                  type={project.type}
+                  status={project.status as any}
+                  client={project.client}
+                  year={project.year}
+                  testimonial={(project as any).testimonial}
+                  description={project.description}
+                  metrics={project.metrics}
+                  tags={project.tags}
+                  imageUrl={project.imageUrl}
+                  link={project.link}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-between md:justify-end items-center gap-6 mt-12 w-full relative">
+          {/* Dots Indicators via mapping */}
+          <div className="flex gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
+            {DUMMY_PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-white w-8' : 'bg-white/20 w-2 hover:bg-white/50'}`}
+              />
+            ))}
+          </div>
+
+          <div className="flex gap-4">
+            <button onClick={prevSlide} className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300" aria-label="Scroll left">
+              <ChevronLeft size={28} />
+            </button>
+            <button onClick={nextSlide} className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300" aria-label="Scroll right">
+              <ChevronRight size={28} strokeWidth={3} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
