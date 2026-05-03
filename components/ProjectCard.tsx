@@ -23,7 +23,7 @@ interface ProjectCardProps {
 export function ProjectCard({ title, type, status, client, year, testimonial, description, metrics, tags, imageUrl, link, index }: ProjectCardProps) {
   return (
     <motion.a
-      href={link}
+      href="https://wa.me/6289630557191"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 50 }}
