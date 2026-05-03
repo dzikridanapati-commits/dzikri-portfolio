@@ -5,20 +5,18 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+
+const navLinks = [
+  { name: "HOME", href: "#home" },
+  { name: "ABOUT", href: "#about" },
+  { name: "PROJECTS", href: "#projects" },
+  { name: "JOURNEY", href: "#journey" },
+  { name: "CONTACT", href: "#contact" },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { lang, t, toggle } = useLanguage();
-
-  const navLinks = [
-    { name: t.nav.home, href: "#home" },
-    { name: t.nav.about, href: "#about" },
-    { name: t.nav.projects, href: "#projects" },
-    { name: t.nav.journey, href: "#journey" },
-    { name: t.nav.contact, href: "#contact" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -52,24 +50,15 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Language Toggle + Mobile Button */}
-        <div className="flex items-center gap-3 z-10">
-          <button
-            onClick={toggle}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-foreground/20 hover:border-foreground/60 transition-all duration-300 text-[10px] font-black uppercase tracking-widest"
-          >
-            <span className={cn("transition-opacity", lang === "en" ? "opacity-100" : "opacity-40")}>EN</span>
-            <span className="text-gray-400">/</span>
-            <span className={cn("transition-opacity", lang === "id" ? "opacity-100" : "opacity-40")}>ID</span>
-          </button>
+        <div className="hidden md:block w-[100px]"></div>
 
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden z-10 p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Nav Overlay */}

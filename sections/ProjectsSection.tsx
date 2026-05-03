@@ -3,8 +3,6 @@
 import { useState, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
-
 export const DUMMY_PROJECTS = [
   {
     title: "RS Mata Undaan Digital Platform",
@@ -130,7 +128,6 @@ export const DUMMY_PROJECTS = [
 export function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
-  const { t } = useLanguage();
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? DUMMY_PROJECTS.length - 1 : prev - 1));
@@ -156,11 +153,11 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 lg:mb-20 gap-4 md:gap-8">
           <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white">
-            {t.projects.title.split(" ").slice(0, -1).join(" ")} <br className="hidden md:block" /> {t.projects.title.split(" ").slice(-1)}
+            Selected <br className="hidden md:block" /> Works
           </h2>
           <div className="flex flex-col md:items-end gap-4 md:gap-6">
             <p className="text-gray-400 font-medium max-w-sm md:text-right uppercase tracking-widest text-xs leading-relaxed">
-              {t.projects.description}
+              Real projects. Real results. Built with precision and purpose.
             </p>
             {/* Mobile counter */}
             <p className="text-white/40 text-xs font-bold tracking-widest md:hidden">

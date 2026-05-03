@@ -70,12 +70,6 @@ export function ProjectCard({ title, type, status, client, year, testimonial, de
             {year && <span className="text-gray-500 font-bold tracking-widest text-xs shrink-0 ml-2">{year}</span>}
           </div>
 
-          {/* Client */}
-          {client && (
-            <p className="text-gray-400 text-[10px] font-bold tracking-widest uppercase mb-2">
-              Client: <span className="text-white">{client}</span>
-            </p>
-          )}
 
           <h3 className="text-xl md:text-3xl lg:text-4xl font-black uppercase mb-3 md:mb-4 leading-tight">
             {title}
