@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import "./globals.css";
 
 const inter = Inter({
@@ -42,7 +44,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <LanguageProvider>
+          <LoadingScreen />
+          {children}
+        </LanguageProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ZNHQRGP1LJ"
           strategy="afterInteractive"

@@ -5,23 +5,23 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { name: "HOME", href: "#home" },
-  { name: "ABOUT", href: "#about" },
-  { name: "PROJECTS", href: "#projects" },
-  { name: "JOURNEY", href: "#journey" },
-  { name: "CONTACT", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, t, toggle } = useLanguage();
+
+  const navLinks = [
+    { name: t.nav.home, href: "#home" },
+    { name: t.nav.about, href: "#about" },
+    { name: t.nav.projects, href: "#projects" },
+    { name: t.nav.journey, href: "#journey" },
+    { name: t.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -38,7 +38,7 @@ export function Navbar() {
           <Image src="/images/logo.png" alt="Dzikri Logo" width={120} height={38} className="h-10 w-auto object-contain" />
           <span className="text-xl font-black tracking-tighter inline-block">ZIKSITE</span>
         </Link>
-        
+
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2 bg-card/50 backdrop-blur-md px-6 py-2 rounded-full border border-border">
           {navLinks.map((link) => (
@@ -51,16 +51,25 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        
-        <div className="hidden md:block w-[100px]"></div>
 
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden z-10 p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Language Toggle + Mobile Button */}
+        <div className="flex items-center gap-3 z-10">
+          <button
+            onClick={toggle}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-foreground/20 hover:border-foreground/60 transition-all duration-300 text-[10px] font-black uppercase tracking-widest"
+          >
+            <span className={cn("transition-opacity", lang === "en" ? "opacity-100" : "opacity-40")}>EN</span>
+            <span className="text-gray-400">/</span>
+            <span className={cn("transition-opacity", lang === "id" ? "opacity-100" : "opacity-40")}>ID</span>
+          </button>
+
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav Overlay */}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Code2, Lightbulb, Zap, Rocket } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const labels = [
   { text: "Software Engineer", top: "15%", left: "10%", delay: 0, rotate: -4 },
@@ -64,6 +65,7 @@ function TypingText({ text }: { text: string }) {
 
 export function HeroSection() {
   const containerRef = useRef(null);
+  const { t } = useLanguage();
   const codeString = `const dev = { name: "Dzikri Ramadhan", role: "Website Developer", base: "Jakarta Selatan" };\nawait dev.init(); // Crafting bold digital experiences`;
 
   return (
@@ -156,7 +158,7 @@ export function HeroSection() {
           className="mb-8 flex flex-col items-center"
         >
           <span className="text-sm md:text-md font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 block">
-            Hi, I am
+            {t.hero.greeting}
           </span>
           <h1 className="text-[14vw] md:text-[8vw] xl:text-[9rem] font-black tracking-tighter leading-[0.9] text-foreground uppercase mix-blend-difference w-full flex flex-col md:block items-center justify-center pointer-events-auto">
             <span>DZIKRI</span> <span className="md:ml-4">RAMADHAN</span>

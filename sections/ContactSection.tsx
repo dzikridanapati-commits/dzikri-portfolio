@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Instagram, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Custom wrapper for TikTok SVG
 const TikTokIcon = ({ size = 24, className = "" }) => (
@@ -11,6 +12,7 @@ const TikTokIcon = ({ size = 24, className = "" }) => (
 );
 
 export function ContactSection() {
+  const { t } = useLanguage();
   return (
     <section id="contact" className="bg-dark text-white py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -26,10 +28,10 @@ export function ContactSection() {
           >
             <div>
               <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
-                Let's Start <br /> A Project
+                {t.contact.title.split(" ").slice(0, 2).join(" ")} <br /> {t.contact.title.split(" ").slice(2).join(" ")}
               </h2>
               <p className="text-gray-400 font-medium max-w-md text-sm md:text-base leading-relaxed mb-12">
-                Currently open for new opportunities. Whether you have a specific project in mind or just want to explore possibilities, feel free to reach out.
+                {t.contact.description}
               </p>
             </div>
 
@@ -39,7 +41,7 @@ export function ContactSection() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Email</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">{t.contact.emailLabel}</p>
                   <p className="text-xl font-bold">dzikri1990@gmail.com</p>
                 </div>
               </a>
@@ -49,7 +51,7 @@ export function ContactSection() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Location</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">{t.contact.locationLabel}</p>
                   <p className="text-xl font-bold">Jakarta Selatan</p>
                 </div>
               </div>
@@ -84,7 +86,7 @@ export function ContactSection() {
             <form className="relative z-10 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">Name</label>
+                  <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">{t.contact.nameLabel}</label>
                   <input
                     type="text"
                     id="name"
@@ -93,7 +95,7 @@ export function ContactSection() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">Email</label>
+                  <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">{t.contact.emailFieldLabel}</label>
                   <input
                     type="email"
                     id="email"
@@ -104,21 +106,21 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">Subject</label>
+                <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">{t.contact.subjectLabel}</label>
                 <input
                   type="text"
                   id="subject"
-                  placeholder="Project Inquiry"
+                  placeholder={t.contact.subjectPlaceholder}
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-white/40 focus:bg-white/5 transition-all duration-300"
                 />
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">Message</label>
+                <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-2">{t.contact.messageLabel}</label>
                 <textarea
                   id="message"
                   rows={5}
-                  placeholder="Tell me about your project..."
+                  placeholder={t.contact.messagePlaceholder}
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-white/40 focus:bg-white/5 transition-all duration-300 resize-none"
                 />
               </div>
@@ -127,7 +129,7 @@ export function ContactSection() {
                 type="button"
                 onClick={() => window.open('https://wa.me/6289630557191', '_blank')}
                 className="group mt-4 w-full md:w-auto self-start bg-white text-dark hover:bg-gray-200 uppercase tracking-widest font-black text-sm px-10 py-5 rounded-2xl border-4 border-transparent hover:border-white/20 transition-all duration-300 flex items-center justify-center gap-3">
-                Send Message
+                {t.contact.sendButton}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
