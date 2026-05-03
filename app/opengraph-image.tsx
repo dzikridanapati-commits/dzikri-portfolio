@@ -19,122 +19,39 @@ export default async function Image() {
           alignItems: "flex-start",
           padding: "80px 100px",
           fontFamily: "sans-serif",
-          position: "relative",
-          overflow: "hidden",
         }}
       >
-        {/* Background circle decoration */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-150px",
-            right: "-150px",
-            width: "600px",
-            height: "600px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.03)",
-            border: "2px solid rgba(255,255,255,0.06)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-100px",
-            right: "100px",
-            width: "400px",
-            height: "400px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.02)",
-            border: "2px solid rgba(255,255,255,0.04)",
-          }}
-        />
-
-        {/* Handle tag */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            marginBottom: "32px",
-          }}
-        >
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: "#22c55e",
-            }}
-          />
-          <span
-            style={{
-              color: "#6b7280",
-              fontSize: "16px",
-              fontWeight: "700",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-            }}
-          >
+        {/* Handle */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "28px" }}>
+          <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#22c55e" }} />
+          <span style={{ color: "#6b7280", fontSize: "18px", fontWeight: 700, letterSpacing: "0.2em" }}>
             @ziksite
           </span>
         </div>
 
         {/* Name */}
-        <div
-          style={{
-            fontSize: "96px",
-            fontWeight: "900",
-            color: "#ffffff",
-            lineHeight: "0.9",
-            textTransform: "uppercase",
-            letterSpacing: "-4px",
-            marginBottom: "32px",
-          }}
-        >
-          DZIKRI
-          <br />
-          RAMADHAN
+        <div style={{ display: "flex", flexDirection: "column", marginBottom: "28px" }}>
+          <span style={{ fontSize: "100px", fontWeight: 900, color: "#ffffff", lineHeight: 0.9, letterSpacing: "-4px" }}>
+            DZIKRI
+          </span>
+          <span style={{ fontSize: "100px", fontWeight: 900, color: "#ffffff", lineHeight: 0.9, letterSpacing: "-4px" }}>
+            RAMADHAN
+          </span>
         </div>
 
         {/* Divider */}
-        <div
-          style={{
-            width: "80px",
-            height: "4px",
-            background: "#ffffff",
-            marginBottom: "28px",
-          }}
-        />
+        <div style={{ width: "80px", height: "4px", background: "#ffffff", marginBottom: "28px" }} />
 
         {/* Role */}
-        <div
-          style={{
-            fontSize: "22px",
-            fontWeight: "700",
-            color: "#9ca3af",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-          }}
-        >
+        <span style={{ fontSize: "22px", fontWeight: 700, color: "#9ca3af", letterSpacing: "0.1em" }}>
           Website Developer · System Builder · AI Automation
-        </div>
+        </span>
 
-        {/* Domain badge */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "60px",
-            right: "100px",
-            padding: "12px 28px",
-            border: "2px solid rgba(255,255,255,0.2)",
-            borderRadius: "100px",
-            color: "#ffffff",
-            fontSize: "16px",
-            fontWeight: "700",
-            letterSpacing: "0.1em",
-          }}
-        >
-          dzikri.ziksite.my.id
+        {/* Domain */}
+        <div style={{ display: "flex", marginTop: "auto" }}>
+          <span style={{ fontSize: "16px", fontWeight: 700, color: "#4b5563", letterSpacing: "0.05em" }}>
+            dzikri.ziksite.my.id
+          </span>
         </div>
       </div>
     ),
