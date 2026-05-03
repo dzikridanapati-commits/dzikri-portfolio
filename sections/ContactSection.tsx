@@ -34,13 +34,13 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-6">
-              <a href="mailto:dzikri@ziksite.my.id" className="flex items-center gap-4 group w-max">
+              <a href="mailto:dzikri1990@gmail.com" className="flex items-center gap-4 group w-max">
                 <div className="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center border-2 border-white/20 group-hover:bg-white group-hover:text-dark transition-all duration-300">
                   <Mail size={24} />
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Email</p>
-                  <p className="text-xl font-bold">dzikri@ziksite.my.id</p>
+                  <p className="text-xl font-bold">dzikri1990@gmail.com</p>
                 </div>
               </a>
 
