@@ -126,28 +126,16 @@ export const DUMMY_PROJECTS = [
   }
 ];
 
-const CATEGORIES = ["All", "Landing Page", "E-Commerce", "Company Profile"];
-
 export function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeCategory, setActiveCategory] = useState("All");
   const touchStartX = useRef<number | null>(null);
 
-  const filtered = activeCategory === "All"
-    ? DUMMY_PROJECTS
-    : DUMMY_PROJECTS.filter((p) => (p as any).category === activeCategory);
-
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? filtered.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? DUMMY_PROJECTS.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === filtered.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleCategoryChange = (cat: string) => {
-    setActiveCategory(cat);
-    setCurrentIndex(0);
+    setCurrentIndex((prev) => (prev === DUMMY_PROJECTS.length - 1 ? 0 : prev + 1));
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -174,26 +162,9 @@ export function ProjectsSection() {
             </p>
             {/* Mobile counter */}
             <p className="text-white/40 text-xs font-bold tracking-widest md:hidden">
-              {currentIndex + 1} / {filtered.length}
+              {currentIndex + 1} / {DUMMY_PROJECTS.length}
             </p>
           </div>
-        </div>
-
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleCategoryChange(cat)}
-              className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border-2 transition-all duration-300 ${
-                activeCategory === cat
-                  ? "bg-white text-black border-white"
-                  : "bg-transparent text-white/50 border-white/20 hover:border-white/50 hover:text-white"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
 
         <div
@@ -205,7 +176,7 @@ export function ProjectsSection() {
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.87,_0,_0.13,_1)] w-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {filtered.map((project, index) => (
+            {DUMMY_PROJECTS.map((project, index) => (
               <div key={index} className="w-full shrink-0">
                 <ProjectCard
                   index={index}
@@ -229,7 +200,7 @@ export function ProjectsSection() {
         <div className="flex justify-between md:justify-end items-center gap-4 mt-8 md:mt-12 w-full relative">
           {/* Dots */}
           <div className="flex items-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
-            {filtered.map((_, i) => (
+            {DUMMY_PROJECTS.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
