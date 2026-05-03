@@ -155,6 +155,15 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8 flex flex-col items-center"
         >
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center gap-2 mb-6 px-5 py-2 border border-green-500/40 rounded-full bg-green-500/10 w-fit mx-auto pointer-events-auto"
+          >
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-green-600 text-[11px] font-black uppercase tracking-widest">Currently Available</span>
+          </motion.div>
           <span className="text-sm md:text-md font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 block">
             Hi, I am
           </span>

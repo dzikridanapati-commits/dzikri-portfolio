@@ -8,9 +8,10 @@ export const DUMMY_PROJECTS = [
   {
     title: "RS Mata Undaan Digital Platform",
     type: "HEALTHCARE WEBSITE",
+    category: "Company Profile",
     status: "LIVE",
     client: "RS Mata Undaan",
-    year: "2024", // Assuming current approx year since none provided
+    year: "2024",
     description: "A modern healthcare website designed to improve accessibility to medical information and services for patients.\n\nThe platform provides a streamlined experience for visitors to explore hospital services, promotions, and medical information while maintaining a clean and professional healthcare interface.\n\nBuilt with a responsive architecture to ensure smooth browsing across desktop and mobile devices.",
     metrics: [
       { value: "38%", label: "FASTER LOAD" },
@@ -24,6 +25,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "Candika Laundry Service Website",
     type: "SERVICE BUSINESS WEBSITE",
+    category: "Company Profile",
     status: "LIVE",
     client: "Candika Laundry",
     year: "2024",
@@ -40,6 +42,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "Iskaya Product Campaign Website",
     type: "PRODUCT LANDING PAGE",
+    category: "Landing Page",
     status: "LIVE",
     client: "Iskaya Snack",
     year: "2024",
@@ -56,6 +59,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "Foodstocks Digital Distribution Platform",
     type: "E-COMMERCE PLATFORM",
+    category: "E-Commerce",
     status: "LIVE",
     client: "Foodstocks",
     year: "2024",
@@ -72,6 +76,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "MyRepublic Promotional Website",
     type: "MARKETING CAMPAIGN WEBSITE",
+    category: "Landing Page",
     status: "LIVE",
     client: "MyRepublic",
     year: "2024",
@@ -88,6 +93,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "Foodstocks Reseller Program Website",
     type: "BUSINESS LANDING PAGE",
+    category: "Landing Page",
     status: "LIVE",
     client: "Foodstocks",
     year: "2024",
@@ -104,6 +110,7 @@ export const DUMMY_PROJECTS = [
   {
     title: "Banana Digital Boost Digital Agency Website",
     type: "AGENCY WEBSITE",
+    category: "Company Profile",
     status: "LIVE",
     client: "Banana Digital Boost",
     year: "2024",
@@ -119,16 +126,28 @@ export const DUMMY_PROJECTS = [
   }
 ];
 
+const CATEGORIES = ["All", "Landing Page", "E-Commerce", "Company Profile"];
+
 export function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("All");
   const touchStartX = useRef<number | null>(null);
 
+  const filtered = activeCategory === "All"
+    ? DUMMY_PROJECTS
+    : DUMMY_PROJECTS.filter((p) => (p as any).category === activeCategory);
+
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? DUMMY_PROJECTS.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? filtered.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === DUMMY_PROJECTS.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === filtered.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    setCurrentIndex(0);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -155,9 +174,26 @@ export function ProjectsSection() {
             </p>
             {/* Mobile counter */}
             <p className="text-white/40 text-xs font-bold tracking-widest md:hidden">
-              {currentIndex + 1} / {DUMMY_PROJECTS.length}
+              {currentIndex + 1} / {filtered.length}
             </p>
           </div>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => handleCategoryChange(cat)}
+              className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border-2 transition-all duration-300 ${
+                activeCategory === cat
+                  ? "bg-white text-black border-white"
+                  : "bg-transparent text-white/50 border-white/20 hover:border-white/50 hover:text-white"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
         <div
@@ -169,7 +205,7 @@ export function ProjectsSection() {
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.87,_0,_0.13,_1)] w-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {DUMMY_PROJECTS.map((project, index) => (
+            {filtered.map((project, index) => (
               <div key={index} className="w-full shrink-0">
                 <ProjectCard
                   index={index}
@@ -193,7 +229,7 @@ export function ProjectsSection() {
         <div className="flex justify-between md:justify-end items-center gap-4 mt-8 md:mt-12 w-full relative">
           {/* Dots */}
           <div className="flex items-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
-            {DUMMY_PROJECTS.map((_, i) => (
+            {filtered.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}

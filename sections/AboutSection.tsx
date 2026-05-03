@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { GraduationCap, Terminal, Code2, Cpu, Wrench, Sparkles, FileCode2, Palette, Code, FileType, Database, LayoutTemplate, Blocks, Flame, Triangle, GitBranch, Send, Figma, BookOpen, Workflow, Bot, Brain, Server, Atom, Wind, Layout } from "lucide-react";
 
 const services = [
@@ -44,6 +44,59 @@ const techStack = {
   ]
 };
 
+function ProfileCard() {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [12, -12]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-12, 12]), { stiffness: 200, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      className="lg:col-span-4"
+      style={{ perspective: 800 }}
+    >
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        className="bg-card rounded-[24px] border border-border shadow-sm hover:shadow-xl hover:border-gray-300 transition-shadow duration-300 overflow-hidden relative group h-full"
+      >
+        <div className="aspect-square md:aspect-auto md:h-full min-h-[320px] relative">
+          <img src="/images/profile.jpeg" alt="Dzikri Ramadhan" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between border border-white/10">
+            <div>
+              <div className="text-white font-bold tracking-wide">@ziksite</div>
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[10px] text-gray-300 font-bold tracking-widest uppercase">Online</span>
+              </div>
+            </div>
+            <a href="https://wa.me/6289630557191" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-black text-xs font-black tracking-widest uppercase rounded-xl hover:bg-gray-200 transition-colors">
+              Hire Me
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export function AboutSection() {
   return (
     <section id="about" className="py-24 px-4 bg-background">
@@ -83,31 +136,7 @@ export function AboutSection() {
           </motion.div>
 
           {/* Card 2: Profile (lg:col-span-4) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-4 bg-card rounded-[24px] border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-gray-300 transition-all duration-300 overflow-hidden relative group"
-          >
-            <div className="aspect-square md:aspect-auto md:h-full min-h-[320px] relative">
-              <img src="/images/profile.jpeg" alt="Dzikri Ramadhan" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-              <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between border border-white/10">
-                <div>
-                  <div className="text-white font-bold tracking-wide">@ziksite</div>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-[10px] text-gray-300 font-bold tracking-widest uppercase">Online</span>
-                  </div>
-                </div>
-                <a href="https://wa.me/6289630557191" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-black text-xs font-black tracking-widest uppercase rounded-xl hover:bg-gray-200 transition-colors">
-                  Hire Me
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          <ProfileCard />
 
           {/* Card 3: What I Do (lg:col-span-5) */}
           <motion.div
