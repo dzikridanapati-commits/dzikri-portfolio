@@ -37,12 +37,12 @@ export function ProjectCard({ title, type, status, client, year, testimonial, de
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         {/* Image Block */}
-        <div className="w-full lg:w-2/5 relative h-[200px] md:h-[260px] lg:h-auto overflow-hidden lg:border-r-[3px] lg:border-b-0 border-b-[3px] border-white/10 shrink-0">
+        <div className="w-full lg:w-2/5 relative aspect-video lg:aspect-auto lg:self-stretch overflow-hidden lg:border-r-[3px] lg:border-b-0 border-b-[3px] border-white/10 shrink-0">
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className="object-cover object-top group-hover/card:scale-105 transition-transform duration-700 ease-out"
+            className="object-contain lg:object-cover bg-[#0f0f0f] object-top group-hover/card:scale-105 transition-transform duration-700 ease-out"
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
         </div>
