@@ -102,7 +102,7 @@ export function AboutSection() {
                     <span className="text-[10px] text-gray-300 font-bold tracking-widest uppercase">Online</span>
                   </div>
                 </div>
-                <a href="#contact" className="px-5 py-2.5 bg-white text-black text-xs font-black tracking-widest uppercase rounded-xl hover:bg-gray-200 transition-colors">
+                <a href="https://wa.me/6289630557191" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-black text-xs font-black tracking-widest uppercase rounded-xl hover:bg-gray-200 transition-colors">
                   Hire Me
                 </a>
               </div>
