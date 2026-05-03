@@ -5,11 +5,11 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 export const DUMMY_PROJECTS = [
   {
-    title: "RS Mata Undaan Digital Platform",
+    title: "Healthcare Hospital Digital Platform",
     type: "HEALTHCARE WEBSITE",
     category: "Company Profile",
     status: "LIVE",
-    client: "RS Mata Undaan",
+    client: "Confidential",
     year: "2024",
     description: "A modern healthcare website designed to improve accessibility to medical information and services for patients.\n\nThe platform provides a streamlined experience for visitors to explore hospital services, promotions, and medical information while maintaining a clean and professional healthcare interface.\n\nBuilt with a responsive architecture to ensure smooth browsing across desktop and mobile devices.",
     metrics: [
@@ -22,11 +22,11 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "Candika Laundry Service Website",
+    title: "Laundry Service Business Website",
     type: "SERVICE BUSINESS WEBSITE",
     category: "Company Profile",
     status: "LIVE",
-    client: "Candika Laundry",
+    client: "Confidential",
     year: "2024",
     description: "A service-based website designed to help customers easily access laundry services and request pickup orders.\n\nThe website focuses on clear messaging, service visibility, and simple interaction so users can quickly understand the service offerings and contact the business. The responsive design ensures a smooth experience across both mobile and desktop platforms.",
     metrics: [
@@ -39,11 +39,11 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "Iskaya Product Campaign Website",
+    title: "Snack Product Campaign Landing Page",
     type: "PRODUCT LANDING PAGE",
     category: "Landing Page",
     status: "LIVE",
-    client: "Iskaya Snack",
+    client: "Confidential",
     year: "2024",
     description: "A product-focused landing page built to promote snack bundle packages and improve online product visibility.\n\nThe design emphasizes strong product visuals, promotional messaging, and a direct path to purchase through marketplace integration. The layout was optimized to capture attention and guide users toward product discovery.",
     metrics: [
@@ -56,13 +56,13 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "Foodstocks Digital Distribution Platform",
+    title: "F&B Digital Distribution Platform",
     type: "E-COMMERCE PLATFORM",
     category: "E-Commerce",
     status: "LIVE",
-    client: "Foodstocks",
+    client: "Confidential",
     year: "2024",
-    description: "An e-commerce platform designed to support the distribution of snack products through a centralized digital system.\n\nThe platform enables users to browse products, explore categories, and place orders through a structured interface optimized for both mobile and desktop devices. The system was built with scalability in mind to support future product expansion.",
+    description: "An e-commerce platform designed to support the distribution of food and beverage products through a centralized digital system.\n\nThe platform enables users to browse products, explore categories, and place orders through a structured interface optimized for both mobile and desktop devices. The system was built with scalability in mind to support future product expansion.",
     metrics: [
       { value: "50+", label: "PRODUCTS INTEGRATED" },
       { value: "MULTI", label: "DEVICE RESPONSIVE" },
@@ -73,11 +73,11 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "MyRepublic Promotional Website",
+    title: "ISP Promotional Campaign Website",
     type: "MARKETING CAMPAIGN WEBSITE",
     category: "Landing Page",
     status: "LIVE",
-    client: "MyRepublic",
+    client: "Confidential",
     year: "2024",
     description: "A promotional website designed to support internet service campaigns and highlight fiber internet offerings.\n\nThe platform delivers clear promotional messaging and strong visual branding to attract potential customers and guide them toward service inquiries. The design prioritizes clarity, speed, and accessibility across devices.",
     metrics: [
@@ -90,15 +90,15 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "Foodstocks Reseller Program Website",
+    title: "F&B Reseller Program Landing Page",
     type: "BUSINESS LANDING PAGE",
     category: "Landing Page",
     status: "LIVE",
-    client: "Foodstocks",
+    client: "Confidential",
     year: "2024",
-    description: "A conversion-focused landing page designed to attract new resellers and simplify the onboarding process for individuals interested in selling snack products.\n\nThe platform highlights the benefits of joining the reseller program, including product variety, competitive margins, and a streamlined ordering system. The layout was designed to clearly communicate the opportunity and encourage visitors to register as partners.\n\nThe responsive interface ensures a smooth experience across both desktop and mobile devices, making it easy for potential resellers to explore the program and start their journey.",
+    description: "A conversion-focused landing page designed to attract new resellers and simplify the onboarding process for individuals interested in selling food and beverage products.\n\nThe platform highlights the benefits of joining the reseller program, including product variety, competitive margins, and a streamlined ordering system. The layout was designed to clearly communicate the opportunity and encourage visitors to register as partners.\n\nThe responsive interface ensures a smooth experience across both desktop and mobile devices, making it easy for potential resellers to explore the program and start their journey.",
     metrics: [
-      { value: "50+", label: "SNACK PRODUCTS" },
+      { value: "50+", label: "PRODUCTS LISTED" },
       { value: "30%", label: "RESELLER INQUIRIES" },
       { value: "96/100", label: "PAGE PERFORMANCE" }
     ],
@@ -107,11 +107,11 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
-    title: "Banana Digital Boost Digital Agency Website",
+    title: "Digital Agency Company Website",
     type: "AGENCY WEBSITE",
     category: "Company Profile",
     status: "LIVE",
-    client: "Banana Digital Boost",
+    client: "Confidential",
     year: "2024",
     description: "A modern agency website created to represent digital services including web development, digital marketing, and technology solutions.\n\nThe platform showcases services, portfolio work, and consultation opportunities to help businesses discover digital solutions that support their growth. The design combines modern visuals with a structured service presentation.",
     metrics: [
