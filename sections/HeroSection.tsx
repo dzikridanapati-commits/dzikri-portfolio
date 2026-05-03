@@ -64,7 +64,6 @@ function TypingText({ text }: { text: string }) {
 
 export function HeroSection() {
   const containerRef = useRef(null);
-  const { t } = useLanguage();
   const codeString = `const dev = { name: "Dzikri Ramadhan", role: "Website Developer", base: "Jakarta Selatan" };\nawait dev.init(); // Crafting bold digital experiences`;
 
   return (
