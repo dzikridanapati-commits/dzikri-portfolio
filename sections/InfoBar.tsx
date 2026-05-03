@@ -14,7 +14,7 @@ export function InfoBar() {
           <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1">Availability</span>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
-            <span className="text-sm font-bold tracking-wide text-green-600">Available · Remote</span>
+            <span className="text-sm font-bold tracking-wide text-green-600">Available</span>
           </div>
         </div>
         <div className="py-6 px-8 flex flex-col justify-center items-center text-center hover:bg-gray-50 transition-colors cursor-default">
