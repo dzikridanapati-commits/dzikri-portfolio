@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dzikri Ramadhan - Website Developer",
     description: "High-end modern developer portfolio of a website developer and tech innovator.",
-    url: "https://yourportfolio.example.com",
+    url: "https://dzikri.ziksite.my.id",
     siteName: "Dzikri Ramadhan Portfolio",
     images: [
       {
