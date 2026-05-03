@@ -37,7 +37,7 @@ export function ProjectCard({ title, type, status, client, year, testimonial, de
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         {/* Image Block */}
-        <div className="w-full lg:w-2/5 relative aspect-square lg:aspect-auto lg:self-stretch overflow-hidden lg:border-r-[3px] lg:border-b-0 border-b-[3px] border-white/10 shrink-0">
+        <div className="w-full lg:w-2/5 relative aspect-square lg:aspect-auto lg:self-stretch overflow-hidden lg:border-r-[3px] lg:border-b-0 border-b-[3px] border-white/10 shrink-0 rounded-t-[21px] lg:rounded-t-none lg:rounded-l-[21px]">
           <Image
             src={imageUrl}
             alt={title}
