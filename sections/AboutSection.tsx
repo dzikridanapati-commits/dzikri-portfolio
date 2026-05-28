@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { GraduationCap, Terminal, Code2, Cpu, Wrench, Sparkles, FileCode2, Palette, Code, FileType, Database, LayoutTemplate, Blocks, Flame, Triangle, GitBranch, Send, Figma, BookOpen, Workflow, Bot, Brain, Server, Atom, Wind, Layout } from "lucide-react";
+import { GraduationCap, Terminal, Code2, Cpu, Wrench, Sparkles, FileCode2, Palette, Code, FileType, Database, LayoutTemplate, Blocks, Flame, Triangle, GitBranch, Send, Figma, BookOpen, Workflow, Bot, Brain, Server, Atom, Wind, Layout, Braces, Globe, ShoppingCart, Monitor, Zap, Shield, BarChart2, Repeat2, Wand2 } from "lucide-react";
 
 const services = [
   { title: "Website Development", desc: "Modern websites using WordPress and custom code" },
@@ -15,32 +15,44 @@ const techStack = {
     { name: "HTML5", icon: FileCode2 },
     { name: "CSS3", icon: Palette },
     { name: "JavaScript", icon: Code },
+    { name: "TypeScript", icon: Braces },
     { name: "PHP", icon: FileType },
     { name: "SQL", icon: Database }
   ],
   "Frameworks & CMS": [
     { name: "React", icon: Atom },
     { name: "Next.js", icon: Triangle },
+    { name: "Node.js", icon: Globe },
     { name: "Tailwind CSS", icon: Wind },
     { name: "Bootstrap", icon: Layout },
     { name: "WordPress", icon: LayoutTemplate },
+    { name: "WooCommerce", icon: ShoppingCart },
     { name: "Elementor", icon: Blocks },
     { name: "Laravel", icon: Flame }
   ],
   "Tools & Ecosystem": [
     { name: "Git", icon: GitBranch },
+    { name: "VS Code", icon: Monitor },
     { name: "Figma", icon: Figma },
+    { name: "Postman", icon: Send },
     { name: "Notion", icon: BookOpen },
+    { name: "Vercel", icon: Zap },
+    { name: "Cloudflare", icon: Shield },
     { name: "cPanel", icon: Server },
-    { name: "VPS", icon: Cpu }
+    { name: "VPS", icon: Cpu },
+    { name: "Google Analytics", icon: BarChart2 }
   ],
   "Automation": [
-    { name: "n8n", icon: Workflow }
+    { name: "n8n", icon: Workflow },
+    { name: "Make", icon: Repeat2 },
+    { name: "Zapier", icon: Zap }
   ],
   "AI Tools": [
     { name: "ChatGPT", icon: Bot },
     { name: "Claude AI", icon: Brain },
-    { name: "Gemini AI", icon: Sparkles }
+    { name: "Gemini AI", icon: Sparkles },
+    { name: "Midjourney", icon: Wand2 },
+    { name: "Cursor", icon: Code2 }
   ]
 };
 
