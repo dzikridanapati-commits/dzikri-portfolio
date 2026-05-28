@@ -52,7 +52,6 @@ const techStack: Record<string, { name: string; icon: IconComponent }[]> = {
     { name: "ChatGPT", icon: SiOpenai },
     { name: "Claude AI", icon: SiAnthropic },
     { name: "Gemini AI", icon: SiGooglegemini },
-    { name: "Midjourney", icon: Wand2 as IconComponent },
     { name: "Cursor", icon: Code2 as IconComponent },
   ],
 };
@@ -181,6 +180,10 @@ export function AboutSection() {
               <div className="flex flex-col border-l-2 border-transparent pl-4 hover:border-gray-200 transition-colors">
                 <span className="text-sm font-black text-foreground mb-1">Automation Systems</span>
                 <span className="text-xs text-gray-500 font-medium leading-relaxed">Designing workflow automation using tools like n8n and AI integrations to improve productivity.</span>
+              </div>
+              <div className="flex flex-col border-l-2 border-transparent pl-4 hover:border-gray-200 transition-colors">
+                <span className="text-sm font-black text-foreground mb-1">E-commerce Development</span>
+                <span className="text-xs text-gray-500 font-medium leading-relaxed">Building online stores with WooCommerce — from product setup and payment gateway to custom checkout flows.</span>
               </div>
               <div className="flex flex-col border-l-2 border-transparent pl-4 hover:border-gray-200 transition-colors">
                 <span className="text-sm font-black text-foreground mb-1">System Integration</span>
