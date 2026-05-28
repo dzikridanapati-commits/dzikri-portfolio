@@ -16,6 +16,9 @@ const SUGGESTED = [
   "Tech stack apa yang dia pake?",
 ];
 
+const MAX_MESSAGES = 20;
+const MAX_INPUT_LENGTH = 300;
+
 export function FloatingChatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -33,8 +36,11 @@ export function FloatingChatbot() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  const isLimitReached = messages.filter((m) => m.role === "user").length >= MAX_MESSAGES;
+
   async function sendMessage(text: string) {
-    if (!text.trim() || loading) return;
+    if (!text.trim() || loading || isLimitReached) return;
+    if (text.length > MAX_INPUT_LENGTH) return;
 
     const userMsg: Message = { role: "user", content: text };
     const updated = [...messages, userMsg];
@@ -189,25 +195,32 @@ export function FloatingChatbot() {
             </div>
 
             {/* Input */}
-            <div className="border-t-2 border-foreground/10 px-4 py-3 flex gap-2 shrink-0">
+            <div className="border-t-2 border-foreground/10 px-4 py-3 flex flex-col gap-2 shrink-0">
+              {isLimitReached && (
+                <p className="text-[10px] text-center text-gray-400 font-medium">
+                  Sesi chat habis. Refresh halaman untuk mulai baru.
+                </p>
+              )}
+              <div className="flex gap-2">
               <input
                 ref={inputRef}
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
                 onKeyDown={handleKey}
-                placeholder="Ketik pertanyaan..."
-                disabled={loading}
+                placeholder={isLimitReached ? "Sesi habis..." : "Ketik pertanyaan..."}
+                disabled={loading || isLimitReached}
                 className="flex-1 text-xs font-medium bg-gray-100 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-foreground/20 disabled:opacity-50 placeholder:text-gray-400"
               />
               <button
                 type="button"
                 aria-label="Kirim pesan"
                 onClick={() => sendMessage(input)}
-                disabled={!input.trim() || loading}
+                disabled={!input.trim() || loading || isLimitReached}
                 className="w-9 h-9 rounded-xl bg-foreground text-white flex items-center justify-center hover:bg-foreground/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] shrink-0"
               >
                 <Send size={14} />
               </button>
+              </div>
             </div>
           </motion.div>
         )}
