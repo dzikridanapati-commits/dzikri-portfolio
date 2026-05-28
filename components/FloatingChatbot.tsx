@@ -10,9 +10,9 @@ interface Message {
 }
 
 const SUGGESTED = [
-  "Apa saja skill-mu?",
-  "Gimana cara hire kamu?",
-  "Ceritain pengalaman kerjamu",
+  "Dzikri bisa bikin apa aja?",
+  "Gimana cara kerja sama sama Dzikri?",
+  "Tech stack apa yang dia pake?",
 ];
 
 export function FloatingChatbot() {
@@ -108,6 +108,8 @@ export function FloatingChatbot() {
                 </div>
               </div>
               <button
+                type="button"
+                aria-label="Tutup chat"
                 onClick={() => setOpen(false)}
                 className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
               >
@@ -125,6 +127,7 @@ export function FloatingChatbot() {
                   <div className="space-y-2">
                     {SUGGESTED.map((s) => (
                       <button
+                        type="button"
                         key={s}
                         onClick={() => sendMessage(s)}
                         className="w-full text-left text-xs font-bold border-2 border-foreground/20 hover:border-foreground px-4 py-2.5 rounded-xl transition-all hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5"
@@ -155,9 +158,9 @@ export function FloatingChatbot() {
                   >
                     {msg.content || (
                       <span className="flex gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "150ms" }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "300ms" }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:0ms]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:150ms]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:300ms]" />
                       </span>
                     )}
                   </div>
@@ -184,6 +187,8 @@ export function FloatingChatbot() {
                 className="flex-1 text-xs font-medium bg-gray-100 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-foreground/20 disabled:opacity-50 placeholder:text-gray-400"
               />
               <button
+                type="button"
+                aria-label="Kirim pesan"
                 onClick={() => sendMessage(input)}
                 disabled={!input.trim() || loading}
                 className="w-9 h-9 rounded-xl bg-foreground text-white flex items-center justify-center hover:bg-foreground/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] shrink-0"
