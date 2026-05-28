@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { X, Send, Bot, User } from "lucide-react";
+import { X, Send, Bot, User, Trash2, MessageCircle, Mail } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 interface Message {
@@ -16,8 +16,16 @@ const SUGGESTED = [
   "Tech stack apa yang dia pake?",
 ];
 
+const GREETING: Message = {
+  role: "assistant",
+  content: "Hei! 👋 Gue Zik, asisten AI Dzikri Ramadhan. Kalau kamu penasaran soal Dzikri, projectnya, atau mau tau cara kerja sama — tanya aja langsung!",
+};
+
 const MAX_MESSAGES = 20;
 const MAX_INPUT_LENGTH = 300;
+const STORAGE_KEY = "zik_chat_history";
+const GREETED_KEY = "zik_greeted";
+const AUTO_OPEN_DELAY = 8000;
 
 export function FloatingChatbot() {
   const [open, setOpen] = useState(false);
@@ -25,18 +33,58 @@ export function FloatingChatbot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [unread, setUnread] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Load history from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) setMessages(JSON.parse(saved));
+    } catch {}
+  }, []);
+
+  // Save history to localStorage on change
+  useEffect(() => {
+    if (messages.length === 0) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-40)));
+    } catch {}
+  }, [messages]);
+
+  // Auto-open greeting after delay (once per session)
+  useEffect(() => {
+    const alreadyGreeted = sessionStorage.getItem(GREETED_KEY);
+    if (alreadyGreeted) return;
+
+    const timer = setTimeout(() => {
+      setMessages((prev) => (prev.length === 0 ? [GREETING] : prev));
+      setOpen(true);
+      setUnread(true);
+      sessionStorage.setItem(GREETED_KEY, "1");
+    }, AUTO_OPEN_DELAY);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open) {
+      setUnread(false);
+      inputRef.current?.focus();
+    }
   }, [open]);
 
   const isLimitReached = messages.filter((m) => m.role === "user").length >= MAX_MESSAGES;
+
+  function clearHistory() {
+    setMessages([]);
+    localStorage.removeItem(STORAGE_KEY);
+  }
 
   async function sendMessage(text: string) {
     if (!text.trim() || loading || isLimitReached) return;
@@ -90,6 +138,8 @@ export function FloatingChatbot() {
     }
   }
 
+  const lastAssistantIndex = messages.map((m) => m.role).lastIndexOf("assistant");
+
   return (
     <div className="fixed bottom-24 right-6 z-50 flex flex-col items-end gap-3">
       {/* Chat Window */}
@@ -101,7 +151,7 @@ export function FloatingChatbot() {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="w-[340px] sm:w-[380px] bg-white rounded-3xl border-2 border-foreground shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
-            style={{ maxHeight: "500px" }}
+            style={{ maxHeight: "520px" }}
           >
             {/* Header */}
             <div className="bg-foreground text-white px-5 py-4 flex items-center justify-between shrink-0">
@@ -114,14 +164,26 @@ export function FloatingChatbot() {
                   <p className="text-[10px] text-white/60 font-bold tracking-wider">Tanya apa saja!</p>
                 </div>
               </div>
-              <button
-                type="button"
-                aria-label="Tutup chat"
-                onClick={() => setOpen(false)}
-                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-              >
-                <X size={14} />
-              </button>
+              <div className="flex items-center gap-2">
+                {messages.length > 0 && (
+                  <button
+                    type="button"
+                    aria-label="Hapus riwayat chat"
+                    onClick={clearHistory}
+                    className="w-7 h-7 rounded-full bg-white/10 hover:bg-red-500/60 flex items-center justify-center transition-colors"
+                  >
+                    <Trash2 size={12} />
+                  </button>
+                )}
+                <button
+                  type="button"
+                  aria-label="Tutup chat"
+                  onClick={() => setOpen(false)}
+                  className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                >
+                  <X size={14} />
+                </button>
+              </div>
             </div>
 
             {/* Messages */}
@@ -147,46 +209,72 @@ export function FloatingChatbot() {
               )}
 
               {messages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  {msg.role === "assistant" && (
-                    <div className="w-6 h-6 rounded-full bg-foreground text-white flex items-center justify-center shrink-0 mt-1">
-                      <Bot size={12} />
+                <div key={i} className="flex flex-col gap-1.5">
+                  <div className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                    {msg.role === "assistant" && (
+                      <div className="w-6 h-6 rounded-full bg-foreground text-white flex items-center justify-center shrink-0 mt-1">
+                        <Bot size={12} />
+                      </div>
+                    )}
+                    <div
+                      className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-xs font-medium leading-relaxed ${
+                        msg.role === "user"
+                          ? "bg-foreground text-white rounded-tr-sm"
+                          : "bg-gray-100 text-gray-800 rounded-tl-sm"
+                      }`}
+                    >
+                      {msg.content ? (
+                        <ReactMarkdown
+                          components={{
+                            p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                            strong: ({ children }) => <strong className="font-black">{children}</strong>,
+                            ul: ({ children }) => <ul className="mt-1 mb-1 space-y-0.5 pl-3 list-disc">{children}</ul>,
+                            ol: ({ children }) => <ol className="mt-1 mb-1 space-y-0.5 pl-3 list-decimal">{children}</ol>,
+                            h3: ({ children }) => <p className="font-black mt-2 mb-0.5">{children}</p>,
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      ) : (
+                        <span className="flex gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:0ms]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:150ms]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:300ms]" />
+                        </span>
+                      )}
                     </div>
-                  )}
-                  <div
-                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-xs font-medium leading-relaxed ${
-                      msg.role === "user"
-                        ? "bg-foreground text-white rounded-tr-sm"
-                        : "bg-gray-100 text-gray-800 rounded-tl-sm"
-                    }`}
-                  >
-                    {msg.content ? (
-                      <ReactMarkdown
-                        components={{
-                          p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
-                          strong: ({ children }) => <strong className="font-black">{children}</strong>,
-                          ul: ({ children }) => <ul className="mt-1 mb-1 space-y-0.5 pl-3 list-disc">{children}</ul>,
-                          ol: ({ children }) => <ol className="mt-1 mb-1 space-y-0.5 pl-3 list-decimal">{children}</ol>,
-                          h3: ({ children }) => <p className="font-black mt-2 mb-0.5">{children}</p>,
-                        }}
-                      >
-                        {msg.content}
-                      </ReactMarkdown>
-                    ) : (
-                      <span className="flex gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:0ms]" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:150ms]" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:300ms]" />
-                      </span>
+                    {msg.role === "user" && (
+                      <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center shrink-0 mt-1">
+                        <User size={12} />
+                      </div>
                     )}
                   </div>
-                  {msg.role === "user" && (
-                    <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center shrink-0 mt-1">
-                      <User size={12} />
-                    </div>
+
+                  {/* CTA buttons after last assistant message */}
+                  {msg.role === "assistant" && i === lastAssistantIndex && !loading && msg.content && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                      className="flex gap-2 ml-8"
+                    >
+                      <a
+                        href="https://wa.me/6289630557191"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#25D366] text-white text-[10px] font-black rounded-lg hover:brightness-110 transition-all hover:-translate-y-0.5"
+                      >
+                        <MessageCircle size={10} />
+                        WhatsApp
+                      </a>
+                      <a
+                        href="mailto:dzikri1990@gmail.com"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-foreground text-white text-[10px] font-black rounded-lg hover:bg-foreground/80 transition-all hover:-translate-y-0.5"
+                      >
+                        <Mail size={10} />
+                        Email
+                      </a>
+                    </motion.div>
                   )}
                 </div>
               ))}
@@ -198,28 +286,28 @@ export function FloatingChatbot() {
             <div className="border-t-2 border-foreground/10 px-4 py-3 flex flex-col gap-2 shrink-0">
               {isLimitReached && (
                 <p className="text-[10px] text-center text-gray-400 font-medium">
-                  Sesi chat habis. Refresh halaman untuk mulai baru.
+                  Sesi chat habis. Klik 🗑️ untuk mulai baru.
                 </p>
               )}
               <div className="flex gap-2">
-              <input
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
-                onKeyDown={handleKey}
-                placeholder={isLimitReached ? "Sesi habis..." : "Ketik pertanyaan..."}
-                disabled={loading || isLimitReached}
-                className="flex-1 text-xs font-medium bg-gray-100 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-foreground/20 disabled:opacity-50 placeholder:text-gray-400"
-              />
-              <button
-                type="button"
-                aria-label="Kirim pesan"
-                onClick={() => sendMessage(input)}
-                disabled={!input.trim() || loading || isLimitReached}
-                className="w-9 h-9 rounded-xl bg-foreground text-white flex items-center justify-center hover:bg-foreground/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] shrink-0"
-              >
-                <Send size={14} />
-              </button>
+                <input
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
+                  onKeyDown={handleKey}
+                  placeholder={isLimitReached ? "Sesi habis..." : "Ketik pertanyaan..."}
+                  disabled={loading || isLimitReached}
+                  className="flex-1 text-xs font-medium bg-gray-100 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-foreground/20 disabled:opacity-50 placeholder:text-gray-400"
+                />
+                <button
+                  type="button"
+                  aria-label="Kirim pesan"
+                  onClick={() => sendMessage(input)}
+                  disabled={!input.trim() || loading || isLimitReached}
+                  className="w-9 h-9 rounded-xl bg-foreground text-white flex items-center justify-center hover:bg-foreground/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.2)] shrink-0"
+                >
+                  <Send size={14} />
+                </button>
               </div>
             </div>
           </motion.div>
@@ -228,6 +316,7 @@ export function FloatingChatbot() {
 
       {/* Toggle Button */}
       <motion.button
+        type="button"
         onClick={() => setOpen((v) => !v)}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
@@ -239,6 +328,19 @@ export function FloatingChatbot() {
         {!open && (
           <span className="absolute inset-0 rounded-full bg-foreground animate-ping opacity-20" />
         )}
+
+        {/* Unread badge */}
+        <AnimatePresence>
+          {unread && !open && (
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
+            />
+          )}
+        </AnimatePresence>
+
         <AnimatePresence mode="wait">
           {open ? (
             <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
