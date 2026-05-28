@@ -18,7 +18,7 @@ const SUGGESTED = [
 
 const GREETING: Message = {
   role: "assistant",
-  content: "Hei! 👋 Gue Zik, asisten AI Dzikri Ramadhan. Kalau kamu penasaran soal Dzikri, projectnya, atau mau tau cara kerja sama — tanya aja langsung!",
+  content: "Hei! 👋 Gue Jack AI, asisten Dzikri Ramadhan. Kalau kamu penasaran soal Dzikri, projectnya, atau mau tau cara kerja sama — tanya aja langsung!",
 };
 
 const MAX_MESSAGES = 20;
@@ -160,7 +160,7 @@ export function FloatingChatbot() {
                   <Bot size={16} />
                 </div>
                 <div>
-                  <p className="text-sm font-black uppercase tracking-widest">Dzikri AI</p>
+                  <p className="text-sm font-black uppercase tracking-widest">Jack AI</p>
                   <p className="text-[10px] text-white/60 font-bold tracking-wider">Tanya apa saja!</p>
                 </div>
               </div>
