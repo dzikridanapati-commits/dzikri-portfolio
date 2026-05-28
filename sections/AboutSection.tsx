@@ -1,59 +1,60 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { GraduationCap, Terminal, Code2, Cpu, Wrench, Sparkles, FileCode2, Palette, Code, FileType, Database, LayoutTemplate, Blocks, Flame, Triangle, GitBranch, Send, Figma, BookOpen, Workflow, Bot, Brain, Server, Atom, Wind, Layout, Braces, Globe, ShoppingCart, Monitor, Zap, Shield, BarChart2, Repeat2, Wand2 } from "lucide-react";
+import { Terminal, Cpu, Sparkles, Database, Brain, Wand2, Code2, Server, Monitor } from "lucide-react";
+import {
+  SiHtml5, SiCss, SiJavascript, SiTypescript, SiPhp,
+  SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiBootstrap,
+  SiWordpress, SiWoocommerce, SiElementor, SiLaravel,
+  SiGit, SiFigma, SiPostman, SiNotion,
+  SiVercel, SiCloudflare, SiCpanel, SiGoogleanalytics,
+  SiN8N, SiOpenai, SiAnthropic, SiGooglegemini,
+} from "react-icons/si";
 
-const services = [
-  { title: "Website Development", desc: "Modern websites using WordPress and custom code" },
-  { title: "Landing Page Development", desc: "Fast and conversion-focused landing pages" },
-  { title: "Automation Systems", desc: "Workflow automation with n8n and AI tools" },
-  { title: "System Integration", desc: "API and digital system integrations" }
-];
+type IconComponent = React.ComponentType<{ size?: number; className?: string }>;
 
-const techStack = {
+const techStack: Record<string, { name: string; icon: IconComponent }[]> = {
   "Core Languages": [
-    { name: "HTML5", icon: FileCode2 },
-    { name: "CSS3", icon: Palette },
-    { name: "JavaScript", icon: Code },
-    { name: "TypeScript", icon: Braces },
-    { name: "PHP", icon: FileType },
-    { name: "SQL", icon: Database }
+    { name: "HTML5", icon: SiHtml5 },
+    { name: "CSS3", icon: SiCss },
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "PHP", icon: SiPhp },
+    { name: "SQL", icon: Database as IconComponent },
   ],
   "Frameworks & CMS": [
-    { name: "React", icon: Atom },
-    { name: "Next.js", icon: Triangle },
-    { name: "Node.js", icon: Globe },
-    { name: "Tailwind CSS", icon: Wind },
-    { name: "Bootstrap", icon: Layout },
-    { name: "WordPress", icon: LayoutTemplate },
-    { name: "WooCommerce", icon: ShoppingCart },
-    { name: "Elementor", icon: Blocks },
-    { name: "Laravel", icon: Flame }
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Bootstrap", icon: SiBootstrap },
+    { name: "WordPress", icon: SiWordpress },
+    { name: "WooCommerce", icon: SiWoocommerce },
+    { name: "Elementor", icon: SiElementor },
+    { name: "Laravel", icon: SiLaravel },
   ],
   "Tools & Ecosystem": [
-    { name: "Git", icon: GitBranch },
-    { name: "VS Code", icon: Monitor },
-    { name: "Figma", icon: Figma },
-    { name: "Postman", icon: Send },
-    { name: "Notion", icon: BookOpen },
-    { name: "Vercel", icon: Zap },
-    { name: "Cloudflare", icon: Shield },
-    { name: "cPanel", icon: Server },
-    { name: "VPS", icon: Cpu },
-    { name: "Google Analytics", icon: BarChart2 }
+    { name: "Git", icon: SiGit },
+    { name: "VS Code", icon: Monitor as IconComponent },
+    { name: "Figma", icon: SiFigma },
+    { name: "Postman", icon: SiPostman },
+    { name: "Notion", icon: SiNotion },
+    { name: "Vercel", icon: SiVercel },
+    { name: "Cloudflare", icon: SiCloudflare },
+    { name: "cPanel", icon: SiCpanel },
+    { name: "VPS", icon: Server as IconComponent },
+    { name: "Google Analytics", icon: SiGoogleanalytics },
   ],
   "Automation": [
-    { name: "n8n", icon: Workflow },
-    { name: "Make", icon: Repeat2 },
-    { name: "Zapier", icon: Zap }
+    { name: "n8n", icon: SiN8N },
   ],
   "AI Tools": [
-    { name: "ChatGPT", icon: Bot },
-    { name: "Claude AI", icon: Brain },
-    { name: "Gemini AI", icon: Sparkles },
-    { name: "Midjourney", icon: Wand2 },
-    { name: "Cursor", icon: Code2 }
-  ]
+    { name: "ChatGPT", icon: SiOpenai },
+    { name: "Claude AI", icon: SiAnthropic },
+    { name: "Gemini AI", icon: SiGooglegemini },
+    { name: "Midjourney", icon: Wand2 as IconComponent },
+    { name: "Cursor", icon: Code2 as IconComponent },
+  ],
 };
 
 function ProfileCard() {
@@ -120,7 +121,7 @@ export function AboutSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
 
-          {/* Card 1: About (lg:col-span-8) */}
+          {/* Card 1: About */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -147,10 +148,10 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Card 2: Profile (lg:col-span-4) */}
+          {/* Card 2: Profile */}
           <ProfileCard />
 
-          {/* Card 3: What I Do (lg:col-span-5) */}
+          {/* Card 3: What I Do */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -188,7 +189,7 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Card 4: Tech Stack (lg:col-span-7) */}
+          {/* Card 4: Tech Stack */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
