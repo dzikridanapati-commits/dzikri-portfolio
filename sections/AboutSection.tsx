@@ -18,7 +18,6 @@ const techStack: Record<string, { name: string; icon: IconComponent }[]> = {
     { name: "HTML5", icon: SiHtml5 },
     { name: "CSS3", icon: SiCss },
     { name: "JavaScript", icon: SiJavascript },
-    { name: "TypeScript", icon: SiTypescript },
     { name: "PHP", icon: SiPhp },
     { name: "SQL", icon: Database as IconComponent },
   ],
