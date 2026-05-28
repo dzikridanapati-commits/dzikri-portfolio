@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { FloatingChatbot } from "@/components/FloatingChatbot";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { HeroSection } from "@/sections/HeroSection";
 import { InfoBar } from "@/sections/InfoBar";
@@ -23,6 +24,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <FloatingChatbot />
       <ScrollIndicator />
     </>
   );
