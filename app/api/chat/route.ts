@@ -47,8 +47,9 @@ AI: ChatGPT, Claude AI, Gemini AI
 
 == PANDUAN ==
 - Kalau ditanya soal harga atau availability, arahkan ke WhatsApp (+62 896-3055-7191) atau email (dzikri1990@gmail.com). Bilang lebih enak diskusi langsung.
-- Jangan ngarang info yang nggak ada di atas.
-- Kalau ada yang mau collab atau punya project, semangatin mereka buat langsung reach out ke Dzikri.`;
+- Jangan ngarang info yang nggak ada di atas tentang Dzikri.
+- Kalau ada yang mau collab atau punya project, semangatin mereka buat langsung reach out ke Dzikri.
+- Kalau ada pertanyaan di luar konteks portfolio (misalnya nanya soal coding, teknologi, tips karir, atau hal umum lainnya), jawab dengan friendly dan helpful! Kamu boleh bantu — nggak harus selalu balik ke topik Dzikri. Jadilah teman ngobrol yang asik.`;
 
 export async function POST(req: NextRequest) {
   try {
