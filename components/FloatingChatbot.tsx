@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Bot, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: "user" | "assistant";
@@ -156,7 +157,19 @@ export function FloatingChatbot() {
                         : "bg-gray-100 text-gray-800 rounded-tl-sm"
                     }`}
                   >
-                    {msg.content || (
+                    {msg.content ? (
+                      <ReactMarkdown
+                        components={{
+                          p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                          strong: ({ children }) => <strong className="font-black">{children}</strong>,
+                          ul: ({ children }) => <ul className="mt-1 mb-1 space-y-0.5 pl-3 list-disc">{children}</ul>,
+                          ol: ({ children }) => <ol className="mt-1 mb-1 space-y-0.5 pl-3 list-decimal">{children}</ol>,
+                          h3: ({ children }) => <p className="font-black mt-2 mb-0.5">{children}</p>,
+                        }}
+                      >
+                        {msg.content}
+                      </ReactMarkdown>
+                    ) : (
                       <span className="flex gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:0ms]" />
                         <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:150ms]" />
