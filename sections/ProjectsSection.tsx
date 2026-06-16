@@ -19,7 +19,7 @@ export const DUMMY_PROJECTS = [
       { value: "24/7", label: "INFO ACCESS" }
     ],
     tags: ["WordPress", "Elementor", "Custom UI Optimization"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (1).jpg",
     link: "#"
   },
   {
@@ -37,7 +37,7 @@ export const DUMMY_PROJECTS = [
       { value: "0", label: "DOWNTIME" }
     ],
     tags: ["WordPress", "Elementor", "Responsive UI Design"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (2).jpg",
     link: "#"
   },
   {
@@ -55,7 +55,7 @@ export const DUMMY_PROJECTS = [
       { value: "94/100", label: "PERFORMANCE" }
     ],
     tags: ["WordPress", "Elementor", "Landing Page Optimization"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (3).jpg",
     link: "#"
   },
   {
@@ -73,7 +73,7 @@ export const DUMMY_PROJECTS = [
       { value: "96/100", label: "UX SCORE" }
     ],
     tags: ["WordPress", "WooCommerce", "Custom UI Development"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (4).jpg",
     link: "#"
   },
   {
@@ -91,7 +91,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "MOBILE READY" }
     ],
     tags: ["WordPress", "Elementor", "UI Optimization"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (5).jpg",
     link: "#"
   },
   {
@@ -109,7 +109,7 @@ export const DUMMY_PROJECTS = [
       { value: "1-STEP", label: "ONBOARDING" }
     ],
     tags: ["WordPress", "Elementor", "Landing Page Optimization"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (6).jpg",
     link: "#"
   },
   {
@@ -127,7 +127,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "RESPONSIVE" }
     ],
     tags: ["WordPress", "Elementor", "Custom UI Development"],
-    imageUrl: "/images/placeholder-image.svg",
+    imageUrl: "/images/porto-ziksite (7).jpg",
     link: "#"
   },
   {
@@ -343,6 +343,42 @@ export const DUMMY_PROJECTS = [
       { value: "3", label: "ROLES SUPPORTED" }
     ],
     tags: ["Next.js", "Supabase", "Drizzle"],
+    imageUrl: "/images/placeholder-image.svg",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Reseller Ecosystem",
+    type: "RESELLER PLATFORM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "A B2B ordering portal that turns resellers into a loyal community. They browse the catalog, place orders, and track shipments and payments end to end — while points, tiers, leaderboards, and rewards keep them coming back.\n\nBuilt as a split web + API architecture with a full admin back office for catalog, access control, and reseller management.\n\nDesigned to scale a reseller network with structure instead of spreadsheets.",
+    metrics: [
+      { value: "15+", label: "RESELLER MODULES" },
+      { value: "GAMIFIED", label: "TIERS & REWARDS" },
+      { value: "E2E", label: "ORDER → SHIPMENT" }
+    ],
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
+    imageUrl: "/images/placeholder-image.svg",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Purchasing Intelligence",
+    type: "PURCHASING ANALYTICS SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "Purchasing decisions backed by data, not gut feel. Synced hourly to the warehouse system, it forecasts demand, flags stockouts and overstock before they happen, and recommends exactly what to reorder — and when.\n\nUnder the hood: reorder-point and EOQ calculators, ABC classification, true-COGS building, and a supplier scorecard, with automated email and WhatsApp alerts.\n\nTurns data that already existed into purchasing decisions that finally use it.",
+    metrics: [
+      { value: "200+", label: "SKUs TRACKED" },
+      { value: "HOURLY", label: "DATA SYNC" },
+      { value: "AUTO", label: "REORDER ALERTS" }
+    ],
+    tags: ["Next.js", "Vercel KV", "Jubelio API"],
     imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
