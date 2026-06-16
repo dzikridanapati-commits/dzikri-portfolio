@@ -9,6 +9,7 @@ export const DUMMY_PROJECTS = [
     type: "HEALTHCARE WEBSITE",
     category: "Company Profile",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A modern healthcare website designed to improve accessibility to medical information and services for patients.\n\nThe platform provides a streamlined experience for visitors to explore hospital services, promotions, and medical information while maintaining a clean and professional healthcare interface.\n\nBuilt with a responsive architecture to ensure smooth browsing across desktop and mobile devices.",
@@ -26,6 +27,7 @@ export const DUMMY_PROJECTS = [
     type: "SERVICE BUSINESS WEBSITE",
     category: "Company Profile",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A service-based website designed to help customers easily access laundry services and request pickup orders.\n\nThe website focuses on clear messaging, service visibility, and simple interaction so users can quickly understand the service offerings and contact the business. The responsive design ensures a smooth experience across both mobile and desktop platforms.",
@@ -43,6 +45,7 @@ export const DUMMY_PROJECTS = [
     type: "PRODUCT LANDING PAGE",
     category: "Landing Page",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A product-focused landing page built to promote snack bundle packages and improve online product visibility.\n\nThe design emphasizes strong product visuals, promotional messaging, and a direct path to purchase through marketplace integration. The layout was optimized to capture attention and guide users toward product discovery.",
@@ -60,6 +63,7 @@ export const DUMMY_PROJECTS = [
     type: "E-COMMERCE PLATFORM",
     category: "E-Commerce",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "An e-commerce platform designed to support the distribution of food and beverage products through a centralized digital system.\n\nThe platform enables users to browse products, explore categories, and place orders through a structured interface optimized for both mobile and desktop devices. The system was built with scalability in mind to support future product expansion.",
@@ -77,6 +81,7 @@ export const DUMMY_PROJECTS = [
     type: "MARKETING CAMPAIGN WEBSITE",
     category: "Landing Page",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A promotional website designed to support internet service campaigns and highlight fiber internet offerings.\n\nThe platform delivers clear promotional messaging and strong visual branding to attract potential customers and guide them toward service inquiries. The design prioritizes clarity, speed, and accessibility across devices.",
@@ -94,6 +99,7 @@ export const DUMMY_PROJECTS = [
     type: "BUSINESS LANDING PAGE",
     category: "Landing Page",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A conversion-focused landing page designed to attract new resellers and simplify the onboarding process for individuals interested in selling food and beverage products.\n\nThe platform highlights the benefits of joining the reseller program, including product variety, competitive margins, and a streamlined ordering system. The layout was designed to clearly communicate the opportunity and encourage visitors to register as partners.\n\nThe responsive interface ensures a smooth experience across both desktop and mobile devices, making it easy for potential resellers to explore the program and start their journey.",
@@ -111,6 +117,7 @@ export const DUMMY_PROJECTS = [
     type: "AGENCY WEBSITE",
     category: "Company Profile",
     status: "LIVE",
+    kind: "Website",
     client: "Confidential",
     year: "2024",
     description: "A modern agency website created to represent digital services including web development, digital marketing, and technology solutions.\n\nThe platform showcases services, portfolio work, and consultation opportunities to help businesses discover digital solutions that support their growth. The design combines modern visuals with a structured service presentation.",
@@ -122,19 +129,127 @@ export const DUMMY_PROJECTS = [
     tags: ["WordPress", "Elementor", "Custom UI Development"],
     imageUrl: "/images/porto-ziksite (7).jpg",
     link: "#"
+  },
+  {
+    title: "Foodstocks Hub — ERP System",
+    type: "ERP SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "An internal ERP web app that unifies an omnichannel food business previously run on five separate spreadsheets into a single source of truth.\n\nThe system consolidates sales & revenue across eight channels, reseller/B2B CRM, inventory, purchasing, and finance into one platform — replacing manual monthly copy-paste workflows with automated dashboards and reports.\n\nBuilt with a scalable architecture so new channels and modules can be added without breaking the data model.",
+    metrics: [
+      { value: "5→1", label: "EXCEL FILES UNIFIED" },
+      { value: "8", label: "CHANNELS INTEGRATED" },
+      { value: "100%", label: "AUTOMATED REPORTING" }
+    ],
+    tags: ["Next.js", "PostgreSQL", "Prisma"],
+    imageUrl: "/images/placeholder-foodstocks-erp.svg",
+    link: "#"
+  },
+  {
+    title: "Boost Engine — Agency Platform",
+    type: "AGENCY MANAGEMENT PLATFORM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "An internal agency management platform that replaces ClickUp, Looker Studio, and WhatsApp with a single workspace for running all agency operations.\n\nIt delivers role-based home dashboards for every position — from CEO revenue pipeline and forecasting to PM kanban boards and staff task lists — with real-time performance data, client health scoring, and a branded client portal.\n\nBuilt on a realtime database with row-level security so each role sees exactly what they need, nothing more.",
+    metrics: [
+      { value: "3→1", label: "TOOLS CONSOLIDATED" },
+      { value: "7", label: "ROLE-BASED DASHBOARDS" },
+      { value: "REAL-TIME", label: "PERFORMANCE DATA" }
+    ],
+    tags: ["Next.js", "Supabase", "Recharts"],
+    imageUrl: "/images/internal-boost-engine.png",
+    link: "#"
+  },
+  {
+    title: "IT Operations Dashboard",
+    type: "IT OPS DASHBOARD",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "An internal dashboard built for an IT team serving two companies at once — tracking development tasks, support tickets, briefs, and team capacity in one place.\n\nIt replaces untracked WhatsApp requests and verbal briefs with a structured ticketing and task system, giving the team clear visibility into workload, priorities, and performance.\n\nDesigned around a priority system that keeps support requests and development work from colliding.",
+    metrics: [
+      { value: "2", label: "COMPANIES SERVED" },
+      { value: "30+", label: "ACTIVE USERS" },
+      { value: "100%", label: "TICKETS TRACKED" }
+    ],
+    tags: ["Next.js", "Prisma", "NextAuth"],
+    imageUrl: "/images/placeholder-dashboard-it.svg",
+    link: "#"
+  },
+  {
+    title: "Banana Academy — Internal LMS",
+    type: "LEARNING MANAGEMENT SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "An internal Learning Management System that turns ad hoc employee training into a structured, measurable, and motivating program.\n\nEmployees follow async training paths, complete assessments, earn points, and redeem real rewards — with progress, leaderboards, and streaks that make every learning action feel meaningful.\n\nAdmins create programs and grade submissions in as few clicks as possible, while managers track team progress without logging into individual accounts.",
+    metrics: [
+      { value: "100%", label: "STRUCTURED TRAINING" },
+      { value: "GAMIFIED", label: "POINTS & LEADERBOARD" },
+      { value: "3", label: "ROLES SUPPORTED" }
+    ],
+    tags: ["Next.js", "Supabase", "Drizzle"],
+    imageUrl: "/images/placeholder-banana-academy.svg",
+    link: "#"
+  },
+  {
+    title: "CV ATS Builder — AI Web App",
+    type: "AI WEB APP",
+    category: "Web App",
+    status: "LIVE",
+    kind: "Web App",
+    client: "In-house Product",
+    year: "2026",
+    description: "A free AI-assisted web app for building ATS-friendly resumes, with a form on the left and a real-time live preview on the right.\n\nUsers fill in five sections, optimize their summary and job descriptions with AI, toggle between Indonesian and English, and export a clean, single-column PDF designed to pass applicant tracking systems.\n\nBuilt as an in-house product with an AI optimization endpoint and a lightweight premium upsell flow.",
+    metrics: [
+      { value: "50K+", label: "RESUMES BUILT" },
+      { value: "<10 MIN", label: "TO FINISH" },
+      { value: "95%", label: "ATS PASS RATE" }
+    ],
+    tags: ["Next.js", "Tailwind", "Claude AI"],
+    imageUrl: "/images/internal-cv-builder.png",
+    link: "https://cvb.ziksite.my.id"
   }
 ];
 
+// Pluralize a kind label for the filter tabs ("Website" -> "Websites")
+const pluralize = (label: string) => (label.endsWith("s") ? label : `${label}s`);
+
 export function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("All");
   const touchStartX = useRef<number | null>(null);
 
+  // Build the tab list dynamically from whatever kinds exist in the data
+  const kinds = Array.from(new Set(DUMMY_PROJECTS.map((p) => (p as any).kind ?? "Website")));
+  const filters = ["All", ...kinds];
+
+  const projects =
+    activeFilter === "All"
+      ? DUMMY_PROJECTS
+      : DUMMY_PROJECTS.filter((p) => ((p as any).kind ?? "Website") === activeFilter);
+
+  const selectFilter = (filter: string) => {
+    setActiveFilter(filter);
+    setCurrentIndex(0);
+  };
+
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? DUMMY_PROJECTS.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === DUMMY_PROJECTS.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -161,10 +276,34 @@ export function ProjectsSection() {
             </p>
             {/* Mobile counter */}
             <p className="text-white/40 text-xs font-bold tracking-widest md:hidden">
-              {currentIndex + 1} / {DUMMY_PROJECTS.length}
+              {currentIndex + 1} / {projects.length}
             </p>
           </div>
         </div>
+
+        {/* Filter Tabs */}
+        {filters.length > 2 && (
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-8 md:mb-12">
+            {filters.map((filter) => {
+              const label = filter === "All" ? "All" : pluralize(filter);
+              const isActive = activeFilter === filter;
+              return (
+                <button
+                  key={filter}
+                  type="button"
+                  onClick={() => selectFilter(filter)}
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest border-2 transition-all duration-300 touch-manipulation ${
+                    isActive
+                      ? "bg-white text-black border-white"
+                      : "bg-transparent text-gray-400 border-white/20 hover:border-white/50 hover:text-white"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         <div
           className="relative w-full overflow-hidden pt-2 rounded-[24px]"
@@ -175,7 +314,7 @@ export function ProjectsSection() {
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.87,_0,_0.13,_1)] w-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {DUMMY_PROJECTS.map((project, index) => (
+            {projects.map((project, index) => (
               <div key={index} className="w-full shrink-0">
                 <ProjectCard
                   index={index}
@@ -199,9 +338,10 @@ export function ProjectsSection() {
         <div className="flex justify-between md:justify-end items-center gap-4 mt-8 md:mt-12 w-full relative">
           {/* Dots */}
           <div className="flex items-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
-            {DUMMY_PROJECTS.map((_, i) => (
+            {projects.map((_, i) => (
               <button
                 key={i}
+                type="button"
                 onClick={() => setCurrentIndex(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-3 rounded-full transition-all duration-300 touch-manipulation ${i === currentIndex ? 'bg-white w-8' : 'bg-white/20 w-3 hover:bg-white/50'}`}
@@ -211,6 +351,7 @@ export function ProjectsSection() {
 
           <div className="flex gap-3 md:gap-4">
             <button
+              type="button"
               onClick={prevSlide}
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300 touch-manipulation"
               aria-label="Previous project"
@@ -218,6 +359,7 @@ export function ProjectsSection() {
               <ChevronLeft size={22} />
             </button>
             <button
+              type="button"
               onClick={nextSlide}
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300 touch-manipulation"
               aria-label="Next project"

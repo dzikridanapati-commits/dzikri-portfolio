@@ -21,9 +21,11 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ title, type, status, client, year, testimonial, description, metrics, tags, imageUrl, link, index }: ProjectCardProps) {
+  // Use the real project URL when provided; otherwise fall back to WhatsApp contact.
+  const href = link && link !== "#" ? link : "https://wa.me/6289630557191";
   return (
     <motion.a
-      href="https://wa.me/6289630557191"
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 50 }}
