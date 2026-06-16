@@ -145,7 +145,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "SEO SCORE" }
     ],
     tags: ["WordPress", "Polylang", "Custom Theme"],
-    imageUrl: "/images/placeholder-web-defense-mro.svg",
+    imageUrl: "/images/web-defense-mro.jpeg",
     link: "#"
   },
   {
@@ -163,7 +163,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "MOBILE RESPONSIVE" }
     ],
     tags: ["WordPress", "Custom Theme", "SEO"],
-    imageUrl: "/images/placeholder-web-group-transport.svg",
+    imageUrl: "/images/web-group-transport.jpeg",
     link: "#"
   },
   {
@@ -181,7 +181,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "MOBILE RESPONSIVE" }
     ],
     tags: ["WordPress", "Custom Theme", "Booking Flow"],
-    imageUrl: "/images/placeholder-web-property-rental.svg",
+    imageUrl: "/images/web-property-rental.jpeg",
     link: "#"
   },
   {
@@ -199,7 +199,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "RESPONSIVE" }
     ],
     tags: ["WordPress", "Catalog", "Responsive UI"],
-    imageUrl: "/images/placeholder-web-industrial-catalog.svg",
+    imageUrl: "/images/web-industrial-catalog.jpeg",
     link: "#"
   },
   {
@@ -217,7 +217,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "RESPONSIVE" }
     ],
     tags: ["HTML/CSS", "Custom UI", "Responsive UI"],
-    imageUrl: "/images/placeholder-web-ad-media-agency.svg",
+    imageUrl: "/images/web-ad-media-agency.jpeg",
     link: "#"
   },
   {
@@ -235,7 +235,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "SEO SCORE" }
     ],
     tags: ["HTML/CSS", "Custom UI", "SEO"],
-    imageUrl: "/images/placeholder-web-investment-firm.svg",
+    imageUrl: "/images/web-investment-firm.jpeg",
     link: "#"
   },
   {
@@ -253,7 +253,7 @@ export const DUMMY_PROJECTS = [
       { value: "FAST", label: "LOAD TIME" }
     ],
     tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/placeholder-web-tech-consulting.svg",
+    imageUrl: "/images/web-tech-consulting.jpeg",
     link: "#"
   },
   {
@@ -271,7 +271,7 @@ export const DUMMY_PROJECTS = [
       { value: "SEO", label: "READY" }
     ],
     tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/placeholder-web-law-firm.svg",
+    imageUrl: "/images/web-law-firm.jpeg",
     link: "#"
   },
   {
