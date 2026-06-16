@@ -2,8 +2,278 @@
 
 import { useState, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 export const DUMMY_PROJECTS = [
+  {
+    title: "CV ATS Builder — AI Web App",
+    type: "AI WEB APP",
+    category: "Web App",
+    status: "LIVE",
+    kind: "Web App",
+    client: "In-house Product",
+    year: "2026",
+    description: "Build a resume that beats the bots. A free, AI-assisted builder with live preview, one-click optimization, and clean ATS-safe PDF export — a finished resume in under ten minutes.\n\nUsers fill in five sections, optimize their summary and job descriptions with AI, toggle between Indonesian and English, and export a clean, single-column PDF designed to pass applicant tracking systems.\n\nBuilt as an in-house product with an AI optimization endpoint and a lightweight premium upsell flow.",
+    metrics: [
+      { value: "50K+", label: "RESUMES BUILT" },
+      { value: "<10 MIN", label: "TO FINISH" },
+      { value: "95%", label: "ATS PASS RATE" }
+    ],
+    tags: ["Next.js", "Tailwind", "Claude AI"],
+    imageUrl: "/images/project-cv-builder.webp",
+    link: "https://cvb.ziksite.my.id"
+  },
+  {
+    title: "Foodstocks Purchasing Intelligence",
+    type: "PURCHASING ANALYTICS SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "Purchasing decisions backed by data, not gut feel. Synced hourly to the warehouse system, it forecasts demand, flags stockouts and overstock before they happen, and recommends exactly what to reorder — and when.\n\nUnder the hood: reorder-point and EOQ calculators, ABC classification, true-COGS building, and a supplier scorecard, with automated email and WhatsApp alerts.\n\nTurns data that already existed into purchasing decisions that finally use it.",
+    metrics: [
+      { value: "200+", label: "SKUs TRACKED" },
+      { value: "HOURLY", label: "DATA SYNC" },
+      { value: "AUTO", label: "REORDER ALERTS" }
+    ],
+    tags: ["Next.js", "Vercel KV", "Jubelio API"],
+    imageUrl: "/images/project-purchasing-tracker.webp",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Reseller Ecosystem",
+    type: "RESELLER PLATFORM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "A B2B ordering portal that turns resellers into a loyal community. They browse the catalog, place orders, and track shipments and payments end to end — while points, tiers, leaderboards, and rewards keep them coming back.\n\nBuilt as a split web + API architecture with a full admin back office for catalog, access control, and reseller management.\n\nDesigned to scale a reseller network with structure instead of spreadsheets.",
+    metrics: [
+      { value: "15+", label: "RESELLER MODULES" },
+      { value: "GAMIFIED", label: "TIERS & REWARDS" },
+      { value: "E2E", label: "ORDER → SHIPMENT" }
+    ],
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
+    imageUrl: "/images/project-reseller-ecosystem.webp",
+    link: "#"
+  },
+  {
+    title: "Banana Academy — Internal LMS",
+    type: "LEARNING MANAGEMENT SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "Employee training people actually finish. An internal LMS that turns ad-hoc onboarding into structured paths, with points, leaderboards, and real rewards that make progress feel earned.\n\nEmployees follow async training paths, complete assessments, earn points, and redeem real rewards — with progress, leaderboards, and streaks that make every learning action feel meaningful.\n\nAdmins create programs and grade submissions in as few clicks as possible, while managers track team progress without logging into individual accounts.",
+    metrics: [
+      { value: "100%", label: "STRUCTURED TRAINING" },
+      { value: "GAMIFIED", label: "POINTS & LEADERBOARD" },
+      { value: "3", label: "ROLES SUPPORTED" }
+    ],
+    tags: ["Next.js", "Supabase", "Drizzle"],
+    imageUrl: "/images/project-banana-academy.webp",
+    link: "#"
+  },
+  {
+    title: "IT Operations Dashboard",
+    type: "IT OPS DASHBOARD",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "Two companies, one IT team, zero lost tickets. An internal dashboard that turns scattered WhatsApp requests into tracked tickets and tasks — with clear visibility into team capacity.\n\nIt replaces untracked WhatsApp requests and verbal briefs with a structured ticketing and task system, giving the team clear visibility into workload, priorities, and performance.\n\nDesigned around a priority system that keeps support requests and development work from colliding.",
+    metrics: [
+      { value: "2", label: "COMPANIES SERVED" },
+      { value: "30+", label: "ACTIVE USERS" },
+      { value: "100%", label: "TICKETS TRACKED" }
+    ],
+    tags: ["Next.js", "Prisma", "NextAuth"],
+    imageUrl: "/images/project-it-dashboard.webp",
+    link: "#"
+  },
+  {
+    title: "Boost Engine — Agency Platform",
+    type: "AGENCY MANAGEMENT PLATFORM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "ClickUp, Looker, and WhatsApp — replaced by one platform. An internal agency operating system with a role-based dashboard for every seat, from CEO forecasts to staff task lists, powered by real-time performance data.\n\nIt delivers role-based home dashboards for every position — from CEO revenue pipeline and forecasting to PM kanban boards and staff task lists — with real-time performance data, client health scoring, and a branded client portal.\n\nBuilt on a realtime database with row-level security so each role sees exactly what they need, nothing more.",
+    metrics: [
+      { value: "3→1", label: "TOOLS CONSOLIDATED" },
+      { value: "7", label: "ROLE-BASED DASHBOARDS" },
+      { value: "REAL-TIME", label: "PERFORMANCE DATA" }
+    ],
+    tags: ["Next.js", "Supabase", "Recharts"],
+    imageUrl: "/images/project-boost-engine.webp",
+    link: "#"
+  },
+  {
+    title: "Foodstocks Hub — ERP System",
+    type: "ERP SYSTEM",
+    category: "Internal System",
+    status: "PRIVATE",
+    kind: "Internal System",
+    client: "Confidential",
+    year: "2026",
+    description: "Five spreadsheets collapsed into one source of truth. An internal ERP that unifies an omnichannel food business — sales, resellers, inventory, purchasing, finance — with automated dashboards that replace hours of manual reporting.\n\nThe system consolidates sales & revenue across eight channels, reseller/B2B CRM, inventory, purchasing, and finance into one platform — replacing manual monthly copy-paste workflows with automated dashboards and reports.\n\nBuilt with a scalable architecture so new channels and modules can be added without breaking the data model.",
+    metrics: [
+      { value: "5→1", label: "EXCEL FILES UNIFIED" },
+      { value: "8", label: "CHANNELS INTEGRATED" },
+      { value: "100%", label: "AUTOMATED REPORTING" }
+    ],
+    tags: ["Next.js", "PostgreSQL", "Prisma"],
+    imageUrl: "/images/project-foodstocks-erp.webp",
+    link: "#"
+  },
+  {
+    title: "Law Firm Corporate Website",
+    type: "LEGAL SERVICES WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Authority you can feel before you call. A law firm's corporate site presenting a deep bench of practice areas with a tone that earns trust from individuals and corporations alike.\n\nThe site presents a broad set of practice areas — from civil and criminal litigation to corporate, banking, intellectual property, and insolvency matters — in a structure that builds trust and makes it easy to get in touch.\n\nDesigned with a professional, authoritative tone and a responsive, SEO-ready build.",
+    metrics: [
+      { value: "10+", label: "PRACTICE AREAS" },
+      { value: "100%", label: "MOBILE-FIRST" },
+      { value: "SEO", label: "READY" }
+    ],
+    tags: ["WordPress", "SEO", "Responsive UI"],
+    imageUrl: "/images/project-law-firm.webp",
+    link: "#"
+  },
+  {
+    title: "Technology Consulting Website",
+    type: "CORPORATE PROFILE WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Opening doors to the public sector. A credibility-first site for a consultancy that helps technology companies break into government and state-owned-enterprise markets.\n\nThe site presents services such as government relations, software license compliance, legal support, and corporate training in a clear, credibility-first structure.\n\nBuilt with a clean, professional layout optimized for performance and SEO.",
+    metrics: [
+      { value: "GOV", label: "& BUMN FOCUS" },
+      { value: "<2s", label: "LOAD TIME" },
+      { value: "100%", label: "RESPONSIVE" }
+    ],
+    tags: ["WordPress", "SEO", "Responsive UI"],
+    imageUrl: "/images/project-tech-consulting.webp",
+    link: "#"
+  },
+  {
+    title: "Investment Management Firm Website",
+    type: "FINANCIAL SERVICES WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Trust, communicated clearly. An OJK-registered investment manager's site that turns a regulated mutual-fund offering into an approachable, confidence-building experience — from how-to-invest to downloadable forms.\n\nThe site guides visitors through how to invest, how to buy and sell, downloadable forms, FAQs, and articles — turning a regulated financial offering into a clear, approachable experience.\n\nA full revamp of the firm's previous site with a refreshed brand palette and typography.",
+    metrics: [
+      { value: "OJK", label: "LICENSED" },
+      { value: "100%", label: "MOBILE READY" },
+      { value: "95/100", label: "SEO SCORE" }
+    ],
+    tags: ["HTML/CSS", "Custom UI", "SEO"],
+    imageUrl: "/images/project-investment-firm.webp",
+    link: "#"
+  },
+  {
+    title: "Advertising & Media Agency Website",
+    type: "AGENCY WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A nationwide out-of-home ad network, presented at scale. Twenty-plus pages of services and coverage, unified by one consistent, brand-true design.\n\nThe build went through a full QA pass — fixing navigation, brand fonts, favicon, and sitemap alignment — to ship a polished, responsive site across more than twenty pages.\n\nStructured around a clear sitemap so visitors can navigate services and coverage areas with ease.",
+    metrics: [
+      { value: "35+", label: "CITIES COVERED" },
+      { value: "21", label: "PAGES SHIPPED" },
+      { value: "100%", label: "BRAND-CONSISTENT" }
+    ],
+    tags: ["HTML/CSS", "Custom UI", "Responsive UI"],
+    imageUrl: "/images/project-ad-media-agency.webp",
+    link: "#"
+  },
+  {
+    title: "Industrial Supplier Catalog Website",
+    type: "PRODUCT CATALOG WEBSITE",
+    category: "E-Commerce",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A B2B supplier's full catalog, built for buyers in a hurry. Browse, add to cart, and send an inquiry — product discovery without the friction, on any device.\n\nThe site combines a structured catalog, cart, blog, and company profile into one clean experience, with a layout optimized for product discovery across devices.\n\nDelivered from an HTML prototype into a maintainable WordPress build.",
+    metrics: [
+      { value: "50+", label: "PRODUCTS" },
+      { value: "CART", label: "+ INQUIRY FLOW" },
+      { value: "100%", label: "RESPONSIVE" }
+    ],
+    tags: ["WordPress", "Catalog", "Responsive UI"],
+    imageUrl: "/images/project-industrial-catalog.webp",
+    link: "#"
+  },
+  {
+    title: "Property & Boarding House Rental Website",
+    type: "PROPERTY RENTAL WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Find your next room in seconds. A rental platform for boarding houses and apartments with per-room pricing, real-time availability, and a WhatsApp flow that closes the gap between browsing and booking.\n\nEach room shows its own specifications, price range, and real-time availability status, with a waiting-list and inquiry flow that hands off to WhatsApp for follow-up.\n\nDesigned around a clear order flow and availability database so prospective tenants can quickly find and ask about the right unit.",
+    metrics: [
+      { value: "3", label: "LOCATIONS" },
+      { value: "LIVE", label: "ROOM AVAILABILITY" },
+      { value: "1-TAP", label: "WA INQUIRY" }
+    ],
+    tags: ["WordPress", "Custom Theme", "Booking Flow"],
+    imageUrl: "/images/project-property-rental.webp",
+    link: "#"
+  },
+  {
+    title: "Premium Group Transport Website",
+    type: "TRAVEL & TRANSPORT WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Premium group travel that finally looks premium. A B2C-first redesign — cleaner, more confident — engineered to turn visitors into WhatsApp bookings.\n\nThe redesign strengthens the brand's positioning and guides visitors toward a clear WhatsApp booking flow, while improving readability and SEO across the whole site.\n\nBuilt by modifying the existing WordPress theme rather than rebuilding from scratch, keeping the brand's history intact.",
+    metrics: [
+      { value: "B2C", label: "REPOSITIONED" },
+      { value: "24/7", label: "WHATSAPP BOOKING" },
+      { value: "100%", label: "MOBILE-FIRST" }
+    ],
+    tags: ["WordPress", "Custom Theme", "SEO"],
+    imageUrl: "/images/project-group-transport.webp",
+    link: "#"
+  },
+  {
+    title: "Defense MRO Corporate Website",
+    type: "CORPORATE PROFILE WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "Built to verify, not to sell. A defense MRO corporate site that proves who the company is, what it can do, and who already trusts it — within the first ten seconds — to government and military partners.\n\nThe site answers three questions within the first ten seconds — who the company is, what they can do, and who already trusts them — for government, military, and private partners verifying the company's capability.\n\nDelivered as a multilingual WordPress build with a custom theme aligned to strict brand guidelines.",
+    metrics: [
+      { value: "ID / EN", label: "BILINGUAL" },
+      { value: "10s", label: "CREDIBILITY TEST" },
+      { value: "95/100", label: "SEO SCORE" }
+    ],
+    tags: ["WordPress", "Polylang", "Custom Theme"],
+    imageUrl: "/images/project-defense-mro.webp",
+    link: "#"
+  },
   {
     title: "Healthcare Hospital Digital Platform",
     type: "HEALTHCARE WEBSITE",
@@ -129,276 +399,6 @@ export const DUMMY_PROJECTS = [
     tags: ["WordPress", "Elementor", "Custom UI Development"],
     imageUrl: "/images/porto-ziksite (7).jpg",
     link: "#"
-  },
-  {
-    title: "Defense MRO Corporate Website",
-    type: "CORPORATE PROFILE WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Built to verify, not to sell. A defense MRO corporate site that proves who the company is, what it can do, and who already trusts it — within the first ten seconds — to government and military partners.\n\nThe site answers three questions within the first ten seconds — who the company is, what they can do, and who already trusts them — for government, military, and private partners verifying the company's capability.\n\nDelivered as a multilingual WordPress build with a custom theme aligned to strict brand guidelines.",
-    metrics: [
-      { value: "ID / EN", label: "BILINGUAL" },
-      { value: "10s", label: "CREDIBILITY TEST" },
-      { value: "95/100", label: "SEO SCORE" }
-    ],
-    tags: ["WordPress", "Polylang", "Custom Theme"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Premium Group Transport Website",
-    type: "TRAVEL & TRANSPORT WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Premium group travel that finally looks premium. A B2C-first redesign — cleaner, more confident — engineered to turn visitors into WhatsApp bookings.\n\nThe redesign strengthens the brand's positioning and guides visitors toward a clear WhatsApp booking flow, while improving readability and SEO across the whole site.\n\nBuilt by modifying the existing WordPress theme rather than rebuilding from scratch, keeping the brand's history intact.",
-    metrics: [
-      { value: "B2C", label: "REPOSITIONED" },
-      { value: "24/7", label: "WHATSAPP BOOKING" },
-      { value: "100%", label: "MOBILE-FIRST" }
-    ],
-    tags: ["WordPress", "Custom Theme", "SEO"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Property & Boarding House Rental Website",
-    type: "PROPERTY RENTAL WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Find your next room in seconds. A rental platform for boarding houses and apartments with per-room pricing, real-time availability, and a WhatsApp flow that closes the gap between browsing and booking.\n\nEach room shows its own specifications, price range, and real-time availability status, with a waiting-list and inquiry flow that hands off to WhatsApp for follow-up.\n\nDesigned around a clear order flow and availability database so prospective tenants can quickly find and ask about the right unit.",
-    metrics: [
-      { value: "3", label: "LOCATIONS" },
-      { value: "LIVE", label: "ROOM AVAILABILITY" },
-      { value: "1-TAP", label: "WA INQUIRY" }
-    ],
-    tags: ["WordPress", "Custom Theme", "Booking Flow"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Industrial Supplier Catalog Website",
-    type: "PRODUCT CATALOG WEBSITE",
-    category: "E-Commerce",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "A B2B supplier's full catalog, built for buyers in a hurry. Browse, add to cart, and send an inquiry — product discovery without the friction, on any device.\n\nThe site combines a structured catalog, cart, blog, and company profile into one clean experience, with a layout optimized for product discovery across devices.\n\nDelivered from an HTML prototype into a maintainable WordPress build.",
-    metrics: [
-      { value: "50+", label: "PRODUCTS" },
-      { value: "CART", label: "+ INQUIRY FLOW" },
-      { value: "100%", label: "RESPONSIVE" }
-    ],
-    tags: ["WordPress", "Catalog", "Responsive UI"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Advertising & Media Agency Website",
-    type: "AGENCY WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "A nationwide out-of-home ad network, presented at scale. Twenty-plus pages of services and coverage, unified by one consistent, brand-true design.\n\nThe build went through a full QA pass — fixing navigation, brand fonts, favicon, and sitemap alignment — to ship a polished, responsive site across more than twenty pages.\n\nStructured around a clear sitemap so visitors can navigate services and coverage areas with ease.",
-    metrics: [
-      { value: "35+", label: "CITIES COVERED" },
-      { value: "21", label: "PAGES SHIPPED" },
-      { value: "100%", label: "BRAND-CONSISTENT" }
-    ],
-    tags: ["HTML/CSS", "Custom UI", "Responsive UI"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Investment Management Firm Website",
-    type: "FINANCIAL SERVICES WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Trust, communicated clearly. An OJK-registered investment manager's site that turns a regulated mutual-fund offering into an approachable, confidence-building experience — from how-to-invest to downloadable forms.\n\nThe site guides visitors through how to invest, how to buy and sell, downloadable forms, FAQs, and articles — turning a regulated financial offering into a clear, approachable experience.\n\nA full revamp of the firm's previous site with a refreshed brand palette and typography.",
-    metrics: [
-      { value: "OJK", label: "LICENSED" },
-      { value: "100%", label: "MOBILE READY" },
-      { value: "95/100", label: "SEO SCORE" }
-    ],
-    tags: ["HTML/CSS", "Custom UI", "SEO"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Technology Consulting Website",
-    type: "CORPORATE PROFILE WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Opening doors to the public sector. A credibility-first site for a consultancy that helps technology companies break into government and state-owned-enterprise markets.\n\nThe site presents services such as government relations, software license compliance, legal support, and corporate training in a clear, credibility-first structure.\n\nBuilt with a clean, professional layout optimized for performance and SEO.",
-    metrics: [
-      { value: "GOV", label: "& BUMN FOCUS" },
-      { value: "<2s", label: "LOAD TIME" },
-      { value: "100%", label: "RESPONSIVE" }
-    ],
-    tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Law Firm Corporate Website",
-    type: "LEGAL SERVICES WEBSITE",
-    category: "Company Profile",
-    status: "LIVE",
-    kind: "Website",
-    client: "Confidential",
-    year: "2026",
-    description: "Authority you can feel before you call. A law firm's corporate site presenting a deep bench of practice areas with a tone that earns trust from individuals and corporations alike.\n\nThe site presents a broad set of practice areas — from civil and criminal litigation to corporate, banking, intellectual property, and insolvency matters — in a structure that builds trust and makes it easy to get in touch.\n\nDesigned with a professional, authoritative tone and a responsive, SEO-ready build.",
-    metrics: [
-      { value: "10+", label: "PRACTICE AREAS" },
-      { value: "100%", label: "MOBILE-FIRST" },
-      { value: "SEO", label: "READY" }
-    ],
-    tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Foodstocks Hub — ERP System",
-    type: "ERP SYSTEM",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "Five spreadsheets collapsed into one source of truth. An internal ERP that unifies an omnichannel food business — sales, resellers, inventory, purchasing, finance — with automated dashboards that replace hours of manual reporting.\n\nThe system consolidates sales & revenue across eight channels, reseller/B2B CRM, inventory, purchasing, and finance into one platform — replacing manual monthly copy-paste workflows with automated dashboards and reports.\n\nBuilt with a scalable architecture so new channels and modules can be added without breaking the data model.",
-    metrics: [
-      { value: "5→1", label: "EXCEL FILES UNIFIED" },
-      { value: "8", label: "CHANNELS INTEGRATED" },
-      { value: "100%", label: "AUTOMATED REPORTING" }
-    ],
-    tags: ["Next.js", "PostgreSQL", "Prisma"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Boost Engine — Agency Platform",
-    type: "AGENCY MANAGEMENT PLATFORM",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "ClickUp, Looker, and WhatsApp — replaced by one platform. An internal agency operating system with a role-based dashboard for every seat, from CEO forecasts to staff task lists, powered by real-time performance data.\n\nIt delivers role-based home dashboards for every position — from CEO revenue pipeline and forecasting to PM kanban boards and staff task lists — with real-time performance data, client health scoring, and a branded client portal.\n\nBuilt on a realtime database with row-level security so each role sees exactly what they need, nothing more.",
-    metrics: [
-      { value: "3→1", label: "TOOLS CONSOLIDATED" },
-      { value: "7", label: "ROLE-BASED DASHBOARDS" },
-      { value: "REAL-TIME", label: "PERFORMANCE DATA" }
-    ],
-    tags: ["Next.js", "Supabase", "Recharts"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "IT Operations Dashboard",
-    type: "IT OPS DASHBOARD",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "Two companies, one IT team, zero lost tickets. An internal dashboard that turns scattered WhatsApp requests into tracked tickets and tasks — with clear visibility into team capacity.\n\nIt replaces untracked WhatsApp requests and verbal briefs with a structured ticketing and task system, giving the team clear visibility into workload, priorities, and performance.\n\nDesigned around a priority system that keeps support requests and development work from colliding.",
-    metrics: [
-      { value: "2", label: "COMPANIES SERVED" },
-      { value: "30+", label: "ACTIVE USERS" },
-      { value: "100%", label: "TICKETS TRACKED" }
-    ],
-    tags: ["Next.js", "Prisma", "NextAuth"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Banana Academy — Internal LMS",
-    type: "LEARNING MANAGEMENT SYSTEM",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "Employee training people actually finish. An internal LMS that turns ad-hoc onboarding into structured paths, with points, leaderboards, and real rewards that make progress feel earned.\n\nEmployees follow async training paths, complete assessments, earn points, and redeem real rewards — with progress, leaderboards, and streaks that make every learning action feel meaningful.\n\nAdmins create programs and grade submissions in as few clicks as possible, while managers track team progress without logging into individual accounts.",
-    metrics: [
-      { value: "100%", label: "STRUCTURED TRAINING" },
-      { value: "GAMIFIED", label: "POINTS & LEADERBOARD" },
-      { value: "3", label: "ROLES SUPPORTED" }
-    ],
-    tags: ["Next.js", "Supabase", "Drizzle"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Foodstocks Reseller Ecosystem",
-    type: "RESELLER PLATFORM",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "A B2B ordering portal that turns resellers into a loyal community. They browse the catalog, place orders, and track shipments and payments end to end — while points, tiers, leaderboards, and rewards keep them coming back.\n\nBuilt as a split web + API architecture with a full admin back office for catalog, access control, and reseller management.\n\nDesigned to scale a reseller network with structure instead of spreadsheets.",
-    metrics: [
-      { value: "15+", label: "RESELLER MODULES" },
-      { value: "GAMIFIED", label: "TIERS & REWARDS" },
-      { value: "E2E", label: "ORDER → SHIPMENT" }
-    ],
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "Foodstocks Purchasing Intelligence",
-    type: "PURCHASING ANALYTICS SYSTEM",
-    category: "Internal System",
-    status: "PRIVATE",
-    kind: "Internal System",
-    client: "Confidential",
-    year: "2026",
-    description: "Purchasing decisions backed by data, not gut feel. Synced hourly to the warehouse system, it forecasts demand, flags stockouts and overstock before they happen, and recommends exactly what to reorder — and when.\n\nUnder the hood: reorder-point and EOQ calculators, ABC classification, true-COGS building, and a supplier scorecard, with automated email and WhatsApp alerts.\n\nTurns data that already existed into purchasing decisions that finally use it.",
-    metrics: [
-      { value: "200+", label: "SKUs TRACKED" },
-      { value: "HOURLY", label: "DATA SYNC" },
-      { value: "AUTO", label: "REORDER ALERTS" }
-    ],
-    tags: ["Next.js", "Vercel KV", "Jubelio API"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "#"
-  },
-  {
-    title: "CV ATS Builder — AI Web App",
-    type: "AI WEB APP",
-    category: "Web App",
-    status: "LIVE",
-    kind: "Web App",
-    client: "In-house Product",
-    year: "2026",
-    description: "Build a resume that beats the bots. A free, AI-assisted builder with live preview, one-click optimization, and clean ATS-safe PDF export — a finished resume in under ten minutes.\n\nUsers fill in five sections, optimize their summary and job descriptions with AI, toggle between Indonesian and English, and export a clean, single-column PDF designed to pass applicant tracking systems.\n\nBuilt as an in-house product with an AI optimization endpoint and a lightweight premium upsell flow.",
-    metrics: [
-      { value: "50K+", label: "RESUMES BUILT" },
-      { value: "<10 MIN", label: "TO FINISH" },
-      { value: "95%", label: "ATS PASS RATE" }
-    ],
-    tags: ["Next.js", "Tailwind", "Claude AI"],
-    imageUrl: "/images/placeholder-image.svg",
-    link: "https://cvb.ziksite.my.id"
   }
 ];
 
@@ -454,34 +454,35 @@ export function ProjectsSection() {
             <p className="text-gray-400 font-medium max-w-sm md:text-right uppercase tracking-widest text-xs leading-relaxed">
               Real projects. Real results. Built with precision and purpose.
             </p>
-            {/* Mobile counter */}
-            <p className="text-white/40 text-xs font-bold tracking-widest md:hidden">
-              {currentIndex + 1} / {projects.length}
-            </p>
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        {filters.length > 2 && (
-          <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-8 md:mb-12">
-            {filters.map((filter) => {
-              const label = filter === "All" ? "All" : pluralize(filter);
-              const isActive = activeFilter === filter;
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  onClick={() => selectFilter(filter)}
-                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest border-2 transition-all duration-300 touch-manipulation ${
-                    isActive
-                      ? "bg-white text-black border-white"
-                      : "bg-transparent text-gray-400 border-white/20 hover:border-white/50 hover:text-white"
-                  }`}
-                >
-                  {label}
-                </button>
-              );
-            })}
+        {/* Filter Dropdown */}
+        {filters.length > 1 && (
+          <div className="relative inline-block mb-8 md:mb-12">
+            <select
+              value={activeFilter}
+              onChange={(e) => selectFilter(e.target.value)}
+              aria-label="Filter projects by type"
+              className="appearance-none bg-[#1A1A1A] text-white border-2 border-white/20 hover:border-white/50 focus:border-white rounded-full pl-5 pr-12 py-2.5 md:py-3 text-[11px] md:text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none transition-colors duration-300"
+            >
+              {filters.map((filter) => {
+                const count =
+                  filter === "All"
+                    ? DUMMY_PROJECTS.length
+                    : DUMMY_PROJECTS.filter((p) => ((p as any).kind ?? "Website") === filter).length;
+                return (
+                  <option key={filter} value={filter} className="bg-[#1A1A1A] text-white">
+                    {(filter === "All" ? "All Projects" : pluralize(filter)) + ` (${count})`}
+                  </option>
+                );
+              })}
+            </select>
+            <ChevronDown
+              size={16}
+              strokeWidth={3}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 pointer-events-none"
+            />
           </div>
         )}
 
@@ -516,8 +517,12 @@ export function ProjectsSection() {
         </div>
 
         <div className="flex justify-between md:justify-end items-center gap-4 mt-8 md:mt-12 w-full relative">
-          {/* Dots */}
-          <div className="flex items-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
+          {/* Mobile counter (dots are too many on small screens) */}
+          <p className="md:hidden text-white/60 text-xs font-bold tracking-widest">
+            {currentIndex + 1} / {projects.length}
+          </p>
+          {/* Dots (desktop only) */}
+          <div className="hidden md:flex items-center gap-2 md:absolute md:left-1/2 md:-translate-x-1/2">
             {projects.map((_, i) => (
               <button
                 key={i}
