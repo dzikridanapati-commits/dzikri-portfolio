@@ -131,6 +131,150 @@ export const DUMMY_PROJECTS = [
     link: "#"
   },
   {
+    title: "Defense MRO Corporate Website",
+    type: "CORPORATE PROFILE WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A corporate profile website for a defense maintenance, repair & overhaul (MRO) company, built to establish institutional credibility rather than to sell.\n\nThe site answers three questions within the first ten seconds — who the company is, what they can do, and who already trusts them — for government, military, and private partners verifying the company's capability.\n\nDelivered as a multilingual WordPress build with a custom theme aligned to strict brand guidelines.",
+    metrics: [
+      { value: "ID / EN", label: "MULTILINGUAL" },
+      { value: "100%", label: "MOBILE RESPONSIVE" },
+      { value: "95/100", label: "SEO SCORE" }
+    ],
+    tags: ["WordPress", "Polylang", "Custom Theme"],
+    imageUrl: "/images/placeholder-web-defense-mro.svg",
+    link: "#"
+  },
+  {
+    title: "Premium Group Transport Website",
+    type: "TRAVEL & TRANSPORT WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A B2C-first website for a premium group transport service, repositioned to feel simpler, more premium, and easier to read.\n\nThe redesign strengthens the brand's positioning and guides visitors toward a clear WhatsApp booking flow, while improving readability and SEO across the whole site.\n\nBuilt by modifying the existing WordPress theme rather than rebuilding from scratch, keeping the brand's history intact.",
+    metrics: [
+      { value: "B2C", label: "FIRST POSITIONING" },
+      { value: "24/7", label: "WHATSAPP BOOKING" },
+      { value: "100%", label: "MOBILE RESPONSIVE" }
+    ],
+    tags: ["WordPress", "Custom Theme", "SEO"],
+    imageUrl: "/images/placeholder-web-group-transport.svg",
+    link: "#"
+  },
+  {
+    title: "Property & Boarding House Rental Website",
+    type: "PROPERTY RENTAL WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A property rental website covering boarding houses (kos) and apartments across multiple locations, with per-room listings and pricing ranges.\n\nEach room shows its own specifications, price range, and real-time availability status, with a waiting-list and inquiry flow that hands off to WhatsApp for follow-up.\n\nDesigned around a clear order flow and availability database so prospective tenants can quickly find and ask about the right unit.",
+    metrics: [
+      { value: "3", label: "LOCATIONS" },
+      { value: "REAL-TIME", label: "ROOM AVAILABILITY" },
+      { value: "100%", label: "MOBILE RESPONSIVE" }
+    ],
+    tags: ["WordPress", "Custom Theme", "Booking Flow"],
+    imageUrl: "/images/placeholder-web-property-rental.svg",
+    link: "#"
+  },
+  {
+    title: "Industrial Supplier Catalog Website",
+    type: "PRODUCT CATALOG WEBSITE",
+    category: "E-Commerce",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A B2B product catalog website for an industrial supplier, built so buyers can browse the full product range and send inquiries with minimal friction.\n\nThe site combines a structured catalog, cart, blog, and company profile into one clean experience, with a layout optimized for product discovery across devices.\n\nDelivered from an HTML prototype into a maintainable WordPress build.",
+    metrics: [
+      { value: "CATALOG", label: "+ CART & INQUIRY" },
+      { value: "50+", label: "PRODUCTS LISTED" },
+      { value: "100%", label: "RESPONSIVE" }
+    ],
+    tags: ["WordPress", "Catalog", "Responsive UI"],
+    imageUrl: "/images/placeholder-web-industrial-catalog.svg",
+    link: "#"
+  },
+  {
+    title: "Advertising & Media Agency Website",
+    type: "AGENCY WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A multi-page website for an advertising and media agency, presenting its services and service locations with a consistent, brand-aligned design.\n\nThe build went through a full QA pass — fixing navigation, brand fonts, favicon, and sitemap alignment — to ship a polished, responsive site across more than twenty pages.\n\nStructured around a clear sitemap so visitors can navigate services and coverage areas with ease.",
+    metrics: [
+      { value: "21", label: "PAGES BUILT" },
+      { value: "BRAND", label: "FONT CONSISTENT" },
+      { value: "100%", label: "RESPONSIVE" }
+    ],
+    tags: ["HTML/CSS", "Custom UI", "Responsive UI"],
+    imageUrl: "/images/placeholder-web-ad-media-agency.svg",
+    link: "#"
+  },
+  {
+    title: "Investment Management Firm Website",
+    type: "FINANCIAL SERVICES WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A company profile website for an OJK-registered investment manager specializing in mutual funds, built to communicate trust and regulatory credibility.\n\nThe site guides visitors through how to invest, how to buy and sell, downloadable forms, FAQs, and articles — turning a regulated financial offering into a clear, approachable experience.\n\nA full revamp of the firm's previous site with a refreshed brand palette and typography.",
+    metrics: [
+      { value: "OJK", label: "REGISTERED" },
+      { value: "100%", label: "MOBILE RESPONSIVE" },
+      { value: "95/100", label: "SEO SCORE" }
+    ],
+    tags: ["HTML/CSS", "Custom UI", "SEO"],
+    imageUrl: "/images/placeholder-web-investment-firm.svg",
+    link: "#"
+  },
+  {
+    title: "Technology Consulting Website",
+    type: "CORPORATE PROFILE WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A corporate website for a management and technology consulting firm focused on helping technology companies penetrate the government and state-owned enterprise market.\n\nThe site presents services such as government relations, software license compliance, legal support, and corporate training in a clear, credibility-first structure.\n\nBuilt with a clean, professional layout optimized for performance and SEO.",
+    metrics: [
+      { value: "100%", label: "RESPONSIVE" },
+      { value: "SEO", label: "OPTIMIZED" },
+      { value: "FAST", label: "LOAD TIME" }
+    ],
+    tags: ["WordPress", "SEO", "Responsive UI"],
+    imageUrl: "/images/placeholder-web-tech-consulting.svg",
+    link: "#"
+  },
+  {
+    title: "Law Firm Corporate Website",
+    type: "LEGAL SERVICES WEBSITE",
+    category: "Company Profile",
+    status: "LIVE",
+    kind: "Website",
+    client: "Confidential",
+    year: "2026",
+    description: "A corporate website for a law firm offering measured legal services to both individual and corporate clients.\n\nThe site presents a broad set of practice areas — from civil and criminal litigation to corporate, banking, intellectual property, and insolvency matters — in a structure that builds trust and makes it easy to get in touch.\n\nDesigned with a professional, authoritative tone and a responsive, SEO-ready build.",
+    metrics: [
+      { value: "10+", label: "PRACTICE AREAS" },
+      { value: "100%", label: "MOBILE RESPONSIVE" },
+      { value: "SEO", label: "READY" }
+    ],
+    tags: ["WordPress", "SEO", "Responsive UI"],
+    imageUrl: "/images/placeholder-web-law-firm.svg",
+    link: "#"
+  },
+  {
     title: "Foodstocks Hub — ERP System",
     type: "ERP SYSTEM",
     category: "Internal System",
