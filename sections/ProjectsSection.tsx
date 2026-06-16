@@ -18,7 +18,7 @@ export const DUMMY_PROJECTS = [
       { value: "<10 MIN", label: "TO FINISH" },
       { value: "95%", label: "ATS PASS RATE" }
     ],
-    tags: ["Next.js", "Tailwind", "Claude AI"],
+    tags: ["Next.js", "Tailwind", "AI Integration"],
     imageUrl: "/images/project-cv-builder.webp",
     link: "https://cvb.ziksite.my.id"
   },
@@ -36,7 +36,7 @@ export const DUMMY_PROJECTS = [
       { value: "HOURLY", label: "DATA SYNC" },
       { value: "AUTO", label: "REORDER ALERTS" }
     ],
-    tags: ["Next.js", "Vercel KV", "Jubelio API"],
+    tags: ["Next.js", "Redis", "REST API"],
     imageUrl: "/images/project-purchasing-tracker.webp",
     link: "#"
   },
@@ -72,7 +72,7 @@ export const DUMMY_PROJECTS = [
       { value: "GAMIFIED", label: "POINTS & LEADERBOARD" },
       { value: "3", label: "ROLES SUPPORTED" }
     ],
-    tags: ["Next.js", "Supabase", "Drizzle"],
+    tags: ["Next.js", "PostgreSQL", "Drizzle"],
     imageUrl: "/images/project-banana-academy.webp",
     link: "#"
   },
@@ -104,11 +104,11 @@ export const DUMMY_PROJECTS = [
     year: "2026",
     description: "ClickUp, Looker, and WhatsApp — replaced by one platform. An internal agency operating system with a role-based dashboard for every seat, from CEO forecasts to staff task lists, powered by real-time performance data.\n\nIt delivers role-based home dashboards for every position — from CEO revenue pipeline and forecasting to PM kanban boards and staff task lists — with real-time performance data, client health scoring, and a branded client portal.\n\nBuilt on a realtime database with row-level security so each role sees exactly what they need, nothing more.",
     metrics: [
-      { value: "3→1", label: "TOOLS CONSOLIDATED" },
-      { value: "7", label: "ROLE-BASED DASHBOARDS" },
-      { value: "REAL-TIME", label: "PERFORMANCE DATA" }
+      { value: "3→1", label: "TOOLS REPLACED" },
+      { value: "7", label: "ROLE DASHBOARDS" },
+      { value: "8-MO", label: "REVENUE FORECAST" }
     ],
-    tags: ["Next.js", "Supabase", "Recharts"],
+    tags: ["Next.js", "PostgreSQL", "Recharts"],
     imageUrl: "/images/project-boost-engine.webp",
     link: "#"
   },
@@ -466,17 +466,11 @@ export function ProjectsSection() {
               aria-label="Filter projects by type"
               className="appearance-none bg-[#1A1A1A] text-white border-2 border-white/20 hover:border-white/50 focus:border-white rounded-full pl-5 pr-12 py-2.5 md:py-3 text-[11px] md:text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none transition-colors duration-300"
             >
-              {filters.map((filter) => {
-                const count =
-                  filter === "All"
-                    ? DUMMY_PROJECTS.length
-                    : DUMMY_PROJECTS.filter((p) => ((p as any).kind ?? "Website") === filter).length;
-                return (
-                  <option key={filter} value={filter} className="bg-[#1A1A1A] text-white">
-                    {(filter === "All" ? "All Projects" : pluralize(filter)) + ` (${count})`}
-                  </option>
-                );
-              })}
+              {filters.map((filter) => (
+                <option key={filter} value={filter} className="bg-[#1A1A1A] text-white">
+                  {filter === "All" ? "All Projects" : pluralize(filter)}
+                </option>
+              ))}
             </select>
             <ChevronDown
               size={16}
