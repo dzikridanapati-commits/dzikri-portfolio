@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, Lock } from "lucide-react";
 export const DUMMY_PROJECTS = [
   {
     title: "CV ATS Builder — AI Web App",
@@ -479,6 +479,15 @@ export function ProjectsSection() {
             />
           </div>
         )}
+
+        {/* Confidentiality disclaimer */}
+        <p className="flex items-start gap-2 text-white/40 text-[11px] md:text-xs font-medium tracking-wide leading-relaxed mb-6 md:mb-8 max-w-2xl">
+          <Lock size={13} className="shrink-0 mt-0.5" />
+          <span>
+            Client names and brand identities are kept confidential. Where shown, logos and
+            identifying details in screenshots are intentionally blurred.
+          </span>
+        </p>
 
         <div
           className="relative w-full overflow-hidden pt-2 rounded-[24px]"
