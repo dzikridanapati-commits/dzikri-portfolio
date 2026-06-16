@@ -120,11 +120,11 @@ export const DUMMY_PROJECTS = [
     kind: "Internal System",
     client: "Confidential",
     year: "2026",
-    description: "Five spreadsheets collapsed into one source of truth. An internal ERP that unifies an omnichannel food business — sales, resellers, inventory, purchasing, finance — with automated dashboards that replace hours of manual reporting.\n\nThe system consolidates sales & revenue across eight channels, reseller/B2B CRM, inventory, purchasing, and finance into one platform — replacing manual monthly copy-paste workflows with automated dashboards and reports.\n\nBuilt with a scalable architecture so new channels and modules can be added without breaking the data model.",
+    description: "One system replacing five spreadsheets. An internal ERP that unifies an omnichannel food business — sales, resellers, inventory, purchasing, and finance — so every team works from the same numbers, updated automatically.\n\nThe system consolidates sales & revenue across eight channels, reseller/B2B CRM, inventory, purchasing, and finance into one platform — replacing manual monthly copy-paste workflows with automated dashboards and reports.\n\nBuilt with a scalable architecture so new channels and modules can be added without breaking the data model.",
     metrics: [
-      { value: "5→1", label: "EXCEL FILES UNIFIED" },
-      { value: "8", label: "CHANNELS INTEGRATED" },
-      { value: "100%", label: "AUTOMATED REPORTING" }
+      { value: "8", label: "SALES CHANNELS" },
+      { value: "5→1", label: "SPREADSHEETS UNIFIED" },
+      { value: "SSOT", label: "SINGLE DATA SOURCE" }
     ],
     tags: ["Next.js", "PostgreSQL", "Prisma"],
     imageUrl: "/images/project-foodstocks-erp.webp",
