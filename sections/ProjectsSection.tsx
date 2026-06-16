@@ -19,7 +19,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "SEO SCORE" }
     ],
     tags: ["WordPress", "Elementor", "Custom UI Optimization"],
-    imageUrl: "/images/porto-ziksite (1).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -37,7 +37,7 @@ export const DUMMY_PROJECTS = [
       { value: "97/100", label: "USABILITY SCORE" }
     ],
     tags: ["WordPress", "Elementor", "Responsive UI Design"],
-    imageUrl: "/images/porto-ziksite (2).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -55,7 +55,7 @@ export const DUMMY_PROJECTS = [
       { value: "94/100", label: "PERFORMANCE" }
     ],
     tags: ["WordPress", "Elementor", "Landing Page Optimization"],
-    imageUrl: "/images/porto-ziksite (3).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -73,7 +73,7 @@ export const DUMMY_PROJECTS = [
       { value: "96/100", label: "UX PERFORMANCE" }
     ],
     tags: ["WordPress", "WooCommerce", "Custom UI Development"],
-    imageUrl: "/images/porto-ziksite (4).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -91,7 +91,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "PERFORMANCE" }
     ],
     tags: ["WordPress", "Elementor", "UI Optimization"],
-    imageUrl: "/images/porto-ziksite (5).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -109,7 +109,7 @@ export const DUMMY_PROJECTS = [
       { value: "96/100", label: "PAGE PERFORMANCE" }
     ],
     tags: ["WordPress", "Elementor", "Landing Page Optimization"],
-    imageUrl: "/images/porto-ziksite (6).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -127,7 +127,7 @@ export const DUMMY_PROJECTS = [
       { value: "97/100", label: "PERFORMANCE" }
     ],
     tags: ["WordPress", "Elementor", "Custom UI Development"],
-    imageUrl: "/images/porto-ziksite (7).jpg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -145,7 +145,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "SEO SCORE" }
     ],
     tags: ["WordPress", "Polylang", "Custom Theme"],
-    imageUrl: "/images/web-defense-mro.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -163,7 +163,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "MOBILE RESPONSIVE" }
     ],
     tags: ["WordPress", "Custom Theme", "SEO"],
-    imageUrl: "/images/web-group-transport.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -181,7 +181,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "MOBILE RESPONSIVE" }
     ],
     tags: ["WordPress", "Custom Theme", "Booking Flow"],
-    imageUrl: "/images/web-property-rental.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -199,7 +199,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "RESPONSIVE" }
     ],
     tags: ["WordPress", "Catalog", "Responsive UI"],
-    imageUrl: "/images/web-industrial-catalog.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -217,7 +217,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "RESPONSIVE" }
     ],
     tags: ["HTML/CSS", "Custom UI", "Responsive UI"],
-    imageUrl: "/images/web-ad-media-agency.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -235,7 +235,7 @@ export const DUMMY_PROJECTS = [
       { value: "95/100", label: "SEO SCORE" }
     ],
     tags: ["HTML/CSS", "Custom UI", "SEO"],
-    imageUrl: "/images/web-investment-firm.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -253,7 +253,7 @@ export const DUMMY_PROJECTS = [
       { value: "FAST", label: "LOAD TIME" }
     ],
     tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/web-tech-consulting.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -271,7 +271,7 @@ export const DUMMY_PROJECTS = [
       { value: "SEO", label: "READY" }
     ],
     tags: ["WordPress", "SEO", "Responsive UI"],
-    imageUrl: "/images/web-law-firm.jpeg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -289,7 +289,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "AUTOMATED REPORTING" }
     ],
     tags: ["Next.js", "PostgreSQL", "Prisma"],
-    imageUrl: "/images/placeholder-foodstocks-erp.svg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -307,7 +307,7 @@ export const DUMMY_PROJECTS = [
       { value: "REAL-TIME", label: "PERFORMANCE DATA" }
     ],
     tags: ["Next.js", "Supabase", "Recharts"],
-    imageUrl: "/images/internal-boost-engine.png",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -325,7 +325,7 @@ export const DUMMY_PROJECTS = [
       { value: "100%", label: "TICKETS TRACKED" }
     ],
     tags: ["Next.js", "Prisma", "NextAuth"],
-    imageUrl: "/images/placeholder-dashboard-it.svg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -343,7 +343,7 @@ export const DUMMY_PROJECTS = [
       { value: "3", label: "ROLES SUPPORTED" }
     ],
     tags: ["Next.js", "Supabase", "Drizzle"],
-    imageUrl: "/images/placeholder-banana-academy.svg",
+    imageUrl: "/images/placeholder-image.svg",
     link: "#"
   },
   {
@@ -361,7 +361,7 @@ export const DUMMY_PROJECTS = [
       { value: "95%", label: "ATS PASS RATE" }
     ],
     tags: ["Next.js", "Tailwind", "Claude AI"],
-    imageUrl: "/images/internal-cv-builder.png",
+    imageUrl: "/images/placeholder-image.svg",
     link: "https://cvb.ziksite.my.id"
   }
 ];
