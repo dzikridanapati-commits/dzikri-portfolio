@@ -2,8 +2,39 @@
 
 import { useState, useRef } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectDetailModal, type ProjectDetail } from "@/components/ProjectDetailModal";
 import { ChevronLeft, ChevronRight, ChevronDown, Lock } from "lucide-react";
 export const DUMMY_PROJECTS = [
+  {
+    title: "AI Sales Agent — WhatsApp Automation",
+    type: "WHATSAPP SALES AUTOMATION",
+    category: "AI Automation",
+    status: "LIVE",
+    kind: "AI Automation",
+    client: "In-house Product",
+    year: "2026",
+    description: "An AI sales rep that never sleeps. It answers prospect chats on WhatsApp 24/7 — qualifying needs, quoting prices and services from real data (never made up), logging leads, and booking meetings straight into Google Calendar.\n\nThe bot acts as a friendly, natural-sounding first responder that uncovers needs, recommends the right package, and steers prospects toward a consultation — while leaving every final decision to the owner.\n\nBuilt anti-hallucination by design: prices, services, and policies are pulled from real data sources, never invented, with strict topic scoping that politely declines anything off-topic.",
+    overview:
+      "A WhatsApp sales automation system built to answer prospect chats automatically around the clock — no manual standby required. The bot acts as a friendly, natural first responder: uncovering needs, recommending the right package, and steering prospects toward a consultation, while keeping the owner in full control of the final decision.\n\nDesigned on an anti-hallucination principle: every answer — prices, services, policies — is drawn from real data sources, not invented. The bot also has firm topic boundaries — focused on the services, politely refusing out-of-context questions.",
+    features: [
+      "💬 Auto-replies to WhatsApp chats 24/7 in a natural conversational tone",
+      "🧠 AI agent with permanent conversation memory (remembers each customer's context)",
+      "📚 Knowledge base (RAG) + price database — accurate, grounded answers",
+      "📅 Automatic meeting booking synced to Google Calendar",
+      "🔔 Hot-lead notifications sent straight to the owner's WhatsApp",
+      "⏸️ Auto-handover — the bot steps aside the moment the owner takes over a chat",
+      "🛡️ Anti-hallucination & strict topic scoping",
+    ],
+    role: "Architecture design, system integration, and end-to-end implementation.",
+    metrics: [
+      { value: "24/7", label: "AUTO-REPLY" },
+      { value: "ANTI-HALU", label: "GROUNDED (RAG)" },
+      { value: "AUTO", label: "CALENDAR BOOKING" }
+    ],
+    tags: ["n8n", "OpenAI GPT-4o-mini", "Supabase (pgvector / RAG)", "WhatsApp (WAHA)", "Google Calendar", "PostgreSQL", "Self-hosted VPS"],
+    imageUrl: "/images/project-ai-sales-agent.png",
+    link: "#"
+  },
   {
     title: "CV ATS Builder — AI Web App",
     type: "AI WEB APP",
@@ -408,6 +439,7 @@ const pluralize = (label: string) => (label.endsWith("s") ? label : `${label}s`)
 export function ProjectsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [detailProject, setDetailProject] = useState<ProjectDetail | null>(null);
   const touchStartX = useRef<number | null>(null);
 
   // Build the tab list dynamically from whatever kinds exist in the data
@@ -513,11 +545,18 @@ export function ProjectsSection() {
                   tags={project.tags}
                   imageUrl={project.imageUrl}
                   link={project.link}
+                  onOpenDetail={
+                    (project as any).features
+                      ? () => setDetailProject(project as ProjectDetail)
+                      : undefined
+                  }
                 />
               </div>
             ))}
           </div>
         </div>
+
+        <ProjectDetailModal project={detailProject} onClose={() => setDetailProject(null)} />
 
         <div className="flex justify-between md:justify-end items-center gap-4 mt-8 md:mt-12 w-full relative">
           {/* Mobile counter (dots are too many on small screens) */}
