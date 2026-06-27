@@ -77,12 +77,13 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
 
             <div className="-mt-12 p-6 md:p-10">
               {/* Image */}
-              <div className="relative w-full aspect-video overflow-hidden rounded-[16px] border-[2px] border-white/10 bg-[#0f0f0f] mb-6 md:mb-8">
+              <div className="w-full overflow-hidden rounded-[16px] border-[2px] border-white/10 bg-[#0f0f0f] mb-6 md:mb-8">
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
-                  fill
-                  className="object-contain object-top"
+                  width={839}
+                  height={506}
+                  className="w-full h-auto"
                   sizes="(max-width: 768px) 100vw, 768px"
                 />
               </div>
