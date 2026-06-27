@@ -33,6 +33,7 @@ export const DUMMY_PROJECTS = [
     ],
     tags: ["n8n", "OpenAI GPT-4o-mini", "Supabase (pgvector / RAG)", "WhatsApp (WAHA)", "Google Calendar", "PostgreSQL", "Self-hosted VPS"],
     imageUrl: "/images/project-ai-sales-agent.png",
+    imageContain: true,
     link: "#"
   },
   {
@@ -545,6 +546,7 @@ export function ProjectsSection() {
                   tags={project.tags}
                   imageUrl={project.imageUrl}
                   link={project.link}
+                  imageContain={(project as any).imageContain}
                   onOpenDetail={
                     (project as any).features
                       ? () => setDetailProject(project as ProjectDetail)

@@ -19,9 +19,10 @@ interface ProjectCardProps {
   link: string;
   index: number;
   onOpenDetail?: () => void;
+  imageContain?: boolean;
 }
 
-export function ProjectCard({ title, type, status, client, year, testimonial, description, metrics, tags, imageUrl, link, index, onOpenDetail }: ProjectCardProps) {
+export function ProjectCard({ title, type, status, client, year, testimonial, description, metrics, tags, imageUrl, link, index, onOpenDetail, imageContain }: ProjectCardProps) {
   // Detail-mode cards (no public URL) open an overview modal instead of navigating.
   const hasDetail = !!onOpenDetail;
   // Use the real project URL when provided; otherwise fall back to WhatsApp contact.
@@ -47,7 +48,10 @@ export function ProjectCard({ title, type, status, client, year, testimonial, de
             src={imageUrl}
             alt={title}
             fill
-            className="object-contain lg:object-cover bg-[#0f0f0f] object-top group-hover/card:scale-105 transition-transform duration-700 ease-out"
+            className={cn(
+              "bg-[#0f0f0f] object-top group-hover/card:scale-105 transition-transform duration-700 ease-out",
+              imageContain ? "object-contain" : "object-contain lg:object-cover"
+            )}
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
         </div>
