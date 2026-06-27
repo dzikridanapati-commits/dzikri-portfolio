@@ -49,8 +49,8 @@ export function ProjectCard({ title, type, status, client, year, testimonial, de
             alt={title}
             fill
             className={cn(
-              "bg-[#0f0f0f] object-top group-hover/card:scale-105 transition-transform duration-700 ease-out",
-              imageContain ? "object-contain" : "object-contain lg:object-cover"
+              "bg-[#0f0f0f] group-hover/card:scale-105 transition-transform duration-700 ease-out",
+              imageContain ? "object-contain object-center p-3 md:p-4" : "object-contain lg:object-cover object-top"
             )}
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
